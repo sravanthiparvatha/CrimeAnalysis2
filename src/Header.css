@@ -1,0 +1,28 @@
+
+.header {
+    height:40px;
+    position:fixed;
+   
+}
+
+#header-sroll {
+    position:fixed;
+    height: 50px;
+    background:rgb(240, 72, 72);
+    left:0;
+    top:0;
+    float:left;
+    width:100%;
+    -ms-transition:     all 0.3s ease-out;
+    -moz-transition:    all 0.3s ease-out;
+    -webkit-transition: all 0.3s ease-out;
+    -o-transition:      all 0.3s ease-out;
+    transition:         all 0.3s ease-out;
+}
+
+.active {
+    color:rgb(255, 255, 255);
+}
+.white {
+    color:rgb(255, 255, 255);
+}

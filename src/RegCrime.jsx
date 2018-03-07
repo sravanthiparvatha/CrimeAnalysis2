@@ -46,22 +46,26 @@ class RegCrime extends React.Component {
        this.handleAddressChange=this.handleAddressChange.bind(this);
        this.handleCityChange=this.handleCityChange.bind(this);
        this.handleStateChange=this.handleStateChange.bind(this);
-       this.handleLatitudeChange=this.handleLatitudeChange.bind(this);
-       this.handleLongitudeChange=this.handleLongitudeChange.bind(this);
+       this.onDragEnd=this.onDragEnd.bind(this);
        this.handleCountryChange=this.handleCountryChange.bind(this);
-       this.handleSubmitChange=this.handleStateChange.bind(this);
+       this.handleSubmitChange=this.handleSubmitChange.bind(this);
         
     }
 
     
 
     handleSubmitChange(event) {
-    
+    console.log('Inside submit start');
         event.preventDefault();
 
+       console.log(this.state.day);
+       console.log(this.state.mon,);
+       console.log(this.state.year);
+       console.log(this.state.lat);
+       console.log(this.state.lng);
        
 
-            request.post("http://localhost:9000/RegCrime")
+            request.post("http://10.10.200.14:9000/crime")
                 .send({ day: this.state.day,mon:this.state.mon, year: this.state.year,  type: this.state.type, gender: this.state.gender,  gender1: this.state.gender1,
                     address: this.state.address, city: this.state.city,  state: this.state.state, lat: this.state.lat,  lng: this.state.lng,
                     country: this.state.country})
@@ -73,7 +77,7 @@ class RegCrime extends React.Component {
                     console.log("response is ok");
                 });
         
-       
+                console.log('Inside submit end');
 
     }
     
@@ -142,21 +146,7 @@ class RegCrime extends React.Component {
        
     }
 
-    handleLatitudeChange(event) {
-        this.setState({
-            lat: event.target.value,
-        });
-       
-    }
-
-    handleLongitudeChange(event) {
-        this.setState({
-            lng: event.target.value,
-        });
-       
-    }
-
-
+   
 
     handleCountryChange(event) {
         this.setState({
@@ -178,6 +168,10 @@ class RegCrime extends React.Component {
         //coords=e.latLng;
         coords.lat=e.latLng.lat();
         coords.lng=e.latLng.lng();
+        this.setState({
+            lat: coords.lat,
+            lng:coords.lng,
+        })
        // console.log('after cords change '+coords.lat+' longii'+coords.lng);
        document.getElementById('latitude').value = e.latLng.lat()
                  document.getElementById('longitude').value =  e.latLng.lng()
@@ -367,7 +361,7 @@ class RegCrime extends React.Component {
              </tr>
              <tr>
              <td>LATITUDE</td>
-             <td><input type="text" name="latitude"  id= "latitude" value="" onChange={this.handleLatitudeChange} readonly="readonly"/></td>
+             <td><input type="text" name="latitude"  id= "latitude" value="" onChange={this.handleLatitudeChange} /></td>
              </tr>
              <tr>
              <td>LONGITUDE</td>
@@ -408,7 +402,7 @@ class RegCrime extends React.Component {
                 <br/>
                 <br/>
             
-             <td><button className="btn btn-primary" id="submit"  > <i class="glyphicon glyphicon-ok"></i>Submit</button></td>
+             <td> <button> <i class="glyphicon glyphicon-ok"></i>SUBMIT</button></td>
              </tr>
        
              </table>

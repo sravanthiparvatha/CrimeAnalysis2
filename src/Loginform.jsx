@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import './RegistrationForm.css';
+import './LoginForm.css';
 
 import request from 'superagent';
 

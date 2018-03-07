@@ -1,5 +1,6 @@
 import React from 'react';
 import './Explore.css';
+import { Link } from 'react-router-dom';
 class Explore extends React.Component{
 render(){
 return(<section className="section-padding hero">
@@ -14,10 +15,10 @@ return(<section className="section-padding hero">
               <div id="i" className="container">
               <div className="row">
             
-             <button className="btn btn-success"> Explore the Map</button><br/>
-                    or   <div id="search-container" role="search">
-                        <input name="location" type="text" id="location-search" placeholder="Search CrimeReports" autocomplete="off" aria-label="Search CrimeReports" />
-                      </div>
+             <button > <Link to='/SearchCrime'>Explore the Map </Link></button><br/>
+                   
+                       
+                    
                       </div>
            </div>
                 </div>

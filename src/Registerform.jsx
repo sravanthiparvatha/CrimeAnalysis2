@@ -21,7 +21,7 @@ class Registerform extends React.Component{
         }
     
         handleSubmit(event) {
-    
+    console.log('handle submit start');
             event.preventDefault();
     
             this.setState({ value: event.target.value });
@@ -34,21 +34,24 @@ class Registerform extends React.Component{
             if (password === confirmPassword) {
     
                 request
-                    .post("http://localhost:9000/signup")
-                    .send({ name: name, email: email, password: password })
+                    .post("http://10.10.200.14:9000/createUser")
+                    .send({ name: name, email: email, password: password ,role:"User" })
                     .then(
                     (response) => {
                         // response.body will be the returned data from your play app, which is an array of objects
                         // I kept the data as object with "place" as the key, and [lat,longs] as value.
                         // following code converts array of objects into the format which my component is accepting.
                         console.log("response is ok");
+                        window.alert("Account created sucessfully");
+					window.location.href="/login";
                     });
             }
             else {
                 //	console.log("nope");
                 alert("Password and confirm password are not matching");
             }
-    
+            
+            console.log('handle submit end');
         }
     
         handleNameChange(event) {

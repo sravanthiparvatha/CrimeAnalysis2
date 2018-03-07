@@ -17,7 +17,7 @@ class Header extends React.Component {
       <ul className="nav navbar-nav navbar-right">
         <li><Link to='/Login'><i class="glyphicon glyphicon-user"></i>LOGIN</Link></li>
         <li><Link to='/Register'><i class="glyphicon glyphicon-user"></i>SIGNUP</Link></li>
-        <li><Link to='/MapContainer'><i class="glyphicon glyphicon-user"></i>REGISTER</Link></li>
+   
         
         <li><a href="search"><i class="glyphicon glyphicon-search"></i>SEARCH</a></li>
         <li><a href="aboutus">ABOUT US</a></li>

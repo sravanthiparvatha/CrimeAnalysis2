@@ -15,6 +15,7 @@ import Loginform from './Loginform';
 import RegCrime from './RegCrime';
 import SearchCrime from './SearchCrime';
 import UserProfile from './UserProfile';
+import Loginheader from './Loginheader';
 
 
 
@@ -29,6 +30,7 @@ class App extends Component {
       <Route path="/MapContainer" exact  component={RegCrime} />
       <Route path="/SearchCrime" exact  component={SearchCrime} />
       <Route path="/User" exact  component={UserProfile} />
+      <Route path="/LoginHeader" exact  component={Loginheader} />
     </div>
     );
   }
