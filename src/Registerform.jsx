@@ -35,7 +35,7 @@ class Registerform extends React.Component{
     
                 request
                     .post("http://10.10.200.14:9000/createUser")
-                    .send({ name: name, email: email, password: password ,role:"User" })
+                    .send({ name: name, email: email, password: password  })
                     .then(
                     (response) => {
                         // response.body will be the returned data from your play app, which is an array of objects

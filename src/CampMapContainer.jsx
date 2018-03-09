@@ -17,7 +17,12 @@ class CampMapContainer extends React.Component {
       disableDefaultUI: true
     });
   }
- 
+  componentWillMount() {
+    
+   console.log('inside will mount');
+
+}
+
   onDragEnd(e) {
     console.log('onDragEnd'+' hii '+e.latLng.lat(), e);
     //coords=e.latLng;
@@ -39,7 +44,7 @@ coords=e.latLng;
  
   render() {
     return (
-      <Gmaps
+      <Gmaps id="map"
         width={'100%'}
         height={'100%'}
         lat={coords.lat}
@@ -67,4 +72,3 @@ coords=e.latLng;
  
 };
 export default CampMapContainer;
- 

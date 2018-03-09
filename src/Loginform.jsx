@@ -22,22 +22,37 @@ class Loginform extends React.Component {
 		 event.preventDefault();
 
 		 this.setState({ value: event.target.value });
-
+		 var accesstoken;
+		 var role='user';
 		 var email = document.getElementById('email').value;
 		 var password = document.getElementById('password').value;
 
 		 request
-				.post("http://10.10.200.21:9000/login")
+				.post("http://10.10.200.14:9000/users/login")
 				.send({ email: email, password: password })
-				.then(
-				(response) => {
-					// response.body will be the returned data from your play app, which is an array of objects
-					// I kept the data as object with "place" as the key, and [lat,longs] as value.
-					// following code converts array of objects into the format which my component is accepting.
-					console.log("response is ok");
-				});
-		     
-	 }
+			//	.then(result1=>result1.json())
+    .then(function(result1){
+       
+		console.log(result1);
+       window.alert("Login successful");
+        
+		accesstoken = result1.access_token;
+		role=result1.role;
+		console.log(accesstoken);
+		console.log(role);
+        localStorage.setItem("accesstoken",result1.access_token);
+       
+		
+		window.location.href="/SearchCrime";      
+    })
+    .catch(function(error){
+		window.alert("please enter correct details");
+        console.log(error);
+    });
+       
+    
+    }
+	 
 
 	 handleEmailChange(event) {
 		this.setState({
