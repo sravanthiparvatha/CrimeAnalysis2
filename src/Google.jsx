@@ -1,7 +1,8 @@
 import React from 'react';
-import { Map, Marker, TileLayer, Polyline } from 'react-leaflet';
+
 import request from 'superagent';
 import Google1 from './Google1';
+import MyMapComponent from './Googlemap';
 //var accesstoken = localStorage.getItem("accesstoken");
 class Google extends React.Component {
   constructor(props) {
@@ -31,14 +32,14 @@ class Google extends React.Component {
         console.log(this.state.id[i].lat);
         Holder.push(
             (
-                <Google1 lat={this.state.id[i].lat}
+                <MyMapComponent lat={this.state.id[i].lat}
                             lng={this.state.id[i].lng} 
-                           ></Google1>
+                           ></MyMapComponent>
             )
         );
    
     return (
-   null
+  <div/>
     );
   }
   }

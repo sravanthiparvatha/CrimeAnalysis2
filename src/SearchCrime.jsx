@@ -5,6 +5,7 @@ import CampMapContainer from './CampMapContainer';
 import Filters from './Filters';
 import Loginheader from './Loginheader';
 import Google from './Google';
+import Googlemap from './Googlemap';
 
 class SearchCrime extends React.Component
 {
@@ -12,7 +13,7 @@ render(){
  return(<div class="wrap">
  <Loginheader/>
     <div className="fleft"><div  id="fil"> <h1> FILTERS</h1> </div><Filters/></div>
-    <div className="fright">    <Google/>
+    <div className="fright">    <Googlemap/>
 
     </div>
     <div className="fright1">  <h3>ANALYSIS</h3></div>

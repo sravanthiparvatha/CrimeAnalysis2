@@ -1,4 +1,4 @@
-import React from 'react';
+/*import React from 'react';
 import { Map, Marker, TileLayer, Polyline } from 'react-leaflet';
 class Google1 extends React.Component
 {
@@ -20,4 +20,4 @@ class Google1 extends React.Component
         ;
     }
 }
-export default Google1;
+export default Google1;*/
