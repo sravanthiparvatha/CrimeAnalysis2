@@ -99,20 +99,31 @@ console.log('constructor')
   }
 }
 
-export default MyMapComponent;
-*/
+export default MyMapComponent;*/
+
 
 const fetch = require("isomorphic-fetch");
 const { compose, withProps, withHandlers } = require("recompose");
+const { InfoBox } = require("react-google-maps/lib/components/addons/InfoBox");
 const {
   withScriptjs,
   withGoogleMap,
   GoogleMap,
   Marker,
+  InfoWindow,
 } = require("react-google-maps");
+const {  withStateHandlers } = require("recompose");
 const { MarkerClusterer } = require("react-google-maps/lib/components/addons/MarkerClusterer");
+var googleMapsInfobox = require("google-maps-infobox")
 
 const MapWithAMarkerClusterer = compose(
+  withStateHandlers(() => ({
+    isOpen: false,
+  }), {
+    onToggleOpen: ({ isOpen }) => () => ({
+      isOpen: !isOpen,
+    })
+  }),
   withProps({
     googleMapURL: "https://maps.googleapis.com/maps/api/js?key=AIzaSyC4R6AN7SmujjPUIGKdyao2Kqitzr1kiRg&v=3.exp&libraries=geometry,drawing,places",
     loadingElement: <div style={{ height: `100%` }} />,
@@ -125,22 +136,36 @@ const MapWithAMarkerClusterer = compose(
       console.log(`Current clicked markers length: ${clickedMarkers.length}`)
       console.log(clickedMarkers)
     },
-  }),
+    
+    
+   
+    
+  })
+  ,
+
   withScriptjs,
   withGoogleMap
 )(props =>
   <GoogleMap
     defaultZoom={12}
-    defaultCenter={{ lat: 17.3850,
-      lng: 78.4867}}
+    defaultCenter={{ lat: 17.3850,lng: 78.4867}}
   >
- 
+
     >
-      {props.markers.map(marker => (
-        <Marker
-        //  key={marker.photo_id}
-          position={{ lat: marker.lat, lng: marker.lng }}
-        />
+      {props.markers.map((marker,i) => (
+       <Marker key={i}
+        onClick={props.onToggleOpen}
+          position={{ lat: marker.lat, lng: marker.lng }}  
+        >
+         {props.isOpen &&<InfoWindow onCloseClick={props.onToggleOpen(marker)}>
+        <div>
+        
+          Controlled zoom: {marker.type}
+        </div>
+      </InfoWindow>
+           }
+        </Marker>
+   
       ))}
  
   </GoogleMap>
@@ -174,3 +199,66 @@ export default class Googlemap extends React.PureComponent {
   }
 }
 
+
+/*
+const { compose, withProps, withStateHandlers } = require("recompose");
+const {
+  withScriptjs,
+  withGoogleMap,
+  GoogleMap,
+  Marker
+} = require("react-google-maps");
+const { InfoBox } = require("react-google-maps/lib/components/addons/InfoBox");
+//const demoFancyMapStyles = require("./demoFancyMapStyles.json");
+
+const StyledMapWithAnInfoBox = compose(
+  withProps({
+    googleMapURL: "https://maps.googleapis.com/maps/api/js?key=AIzaSyC4R6AN7SmujjPUIGKdyao2Kqitzr1kiRg&v=3.exp&libraries=geometry,drawing,places",
+    loadingElement: <div style={{ height: `100%`,width:`100%`}} />,
+    containerElement: <div style={{ height: `4000px` }} />,
+    mapElement: <div style={{ height: `100%` }} />,
+    center: { lat: 17.3850,lng: 78.4867},
+  }),
+  withStateHandlers(() => ({
+    isOpen: false,
+  }), {
+    onToggleOpen: ({ isOpen }) => () => ({
+      isOpen: !isOpen,
+    })
+  }),
+  withScriptjs,
+  withGoogleMap
+)(props =>
+  <GoogleMap
+    defaultZoom={12}
+    defaultCenter={props.center}
+    
+  >
+    <InfoBox
+      defaultPosition={ { lat: 17.3850,lng: 78.4867}}
+      options={{ closeBoxURL: ``, enableEventPropagation: true }}
+    >
+      <div style={{ backgroundColor: `yellow`, opacity: 0.75, padding: `12px` }}>
+        <div style={{ fontSize: `16px`, fontColor: `#08233B` }}>
+          Hello, Taipei!
+        </div>
+      </div>
+    </InfoBox>
+    <Marker
+      position={{ lat: 17.3850,lng: 78.4867}}
+      onClick={props.onToggleOpen}
+    >
+      { <InfoBox
+        onCloseClick={props.onToggleOpen}
+        options={{ closeBoxURL: ``, enableEventPropagation: true }}
+      >
+        <div style={{ backgroundColor: `yellow`, opacity: 0.75, padding: `12px` }}>
+          <div style={{ fontSize: `16px`, fontColor: `#08233B` }}>
+            Hello, Kaohsiung!
+          </div>
+        </div>
+      </InfoBox>}
+    </Marker>
+  </GoogleMap>
+);
+*/
