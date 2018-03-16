@@ -6,6 +6,7 @@ import Filters from './Filters';
 import Loginheader from './Loginheader';
 import Google from './Google';
 import Googlemap from './Googlemap';
+import Chart from './Chart';
 
 class SearchCrime extends React.Component
 {
@@ -13,10 +14,10 @@ render(){
  return(<div class="wrap">
  <Loginheader/>
     <div className="fleft"><div  id="fil"> <h1> FILTERS</h1> </div><Filters/></div>
-    <div className="fright">    <Googlemap/>
+    <div className="fright">    <Googlemap/><Chart/>
 
     </div>
-    <div className="fright1">  <h3>ANALYSIS</h3></div>
+    <div className="fright1"> <br/>  <br/>  <br/>  <br/>  <br/>  <br/> <h3>ANALYSIS</h3><Chart/></div>
 </div>);
 }
 }
