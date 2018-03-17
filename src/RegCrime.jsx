@@ -38,6 +38,10 @@ class RegCrime extends React.Component {
            type:"",
            gender:"",
            gender1:"",
+           morning:"",
+           afternoon:"",
+           evening:"",
+           late:"",
            address:"",
            city:"",
            state:"",
@@ -45,6 +49,11 @@ class RegCrime extends React.Component {
            lng:"",
            country:"",
         };
+           
+       this.morning=this.morning.bind(this);
+       this.afternoon=this.afternoon.bind(this);
+       this.evening=this.evening.bind(this);
+       this.late=this.late.bind(this);
        this.handleDayChange=this.handleDayChange.bind(this);
        this.handleMonthChange=this.handleMonthChange.bind(this);
        this.handleYearChange=this.handleYearChange.bind(this);
@@ -71,12 +80,25 @@ console.log(type2);
        console.log(this.state.year);
        console.log(this.state.lat);
        console.log(this.state.lng);
+       let time="";
+    //   let type20="";
+if(this.state.morning)
+time+="morning ";
+if(this.state.afternoon)
+time+="afternoon ";
+if(this.state.evening)
+time+="evening ";
+if(this.state.late)
+time+="late ";
+console.log('country   '+this.state.country);
+let dd=this.state.year+'-'+this.state.mon+'-'+this.state.day;
+console.log('date modified  '+dd);
        
 
             request.post("http://10.10.200.14:9000/crime")
-                .send({ day: this.state.day,mon:this.state.mon, year: this.state.year,  type: type2, gender: this.state.gender,  gender1: this.state.gender1,
-                    address: this.state.address, city: this.state.city,  state: this.state.state, lat: this.state.lat,  lng: this.state.lng,
-                    country: this.state.country})
+                .send({ day: dd,time:time,  type: type2, gender: this.state.gender,  gender1: this.state.gender1,
+                    address: this.state.address,  lat: this.state.lat,  lng: this.state.lng,
+                    country: 'India'})
                 .then(
                 (response) => {
                     // response.body will be the returned data from your play app, which is an array of objects
@@ -135,6 +157,69 @@ console.log(type2);
         });
        
     }
+    morning(event)
+    {
+        console.log('in morning change3424');
+        if(event.target.checked)
+    this.setState({
+        morning : "true"
+    });
+    else
+    this.setState({
+        morning : "false"
+    });
+    console.log('end of morning');
+
+    }
+
+
+    afternoon(event)
+    {
+        console.log('in handle dayy change3424');
+        if(event.target.checked)
+    this.setState({
+        afternoon : "true"
+    });
+    else
+    this.setState({
+        afternoon : "false"
+    });
+    console.log('end of afternoon');
+
+    }
+
+
+    evening(event)
+    {
+        console.log('in handle dayy change3424');
+        if(event.target.checked)
+    this.setState({
+        evening : "true"
+    });
+    else
+    this.setState({
+        evening : "false"
+    });
+    console.log('end of evening');
+
+    }
+
+
+    late(event)
+    {
+        console.log('in handle dayy change3424');
+        if(event.target.checked)
+    this.setState({
+        late : "true"
+    });
+    else
+    this.setState({
+        late : "false"
+    });
+    console.log('end of late');
+
+    }
+
     
     handleAddressChange(event) {
         this.setState({
@@ -262,44 +347,36 @@ console.log(type2);
               
              <select id="Birthday_Month" name="Crime_Month" onChange={this.handleMonthChange}>
              <option value="-1">Month:</option>
-             <option value="January">Jan</option>
-             <option value="February">Feb</option>
-             <option value="March">Mar</option>
-             <option value="April">Apr</option>
-             <option value="May">May</option>
-             <option value="June">Jun</option>
-             <option value="July">Jul</option>
-             <option value="August">Aug</option>
-             <option value="September">Sep</option>
-             <option value="October">Oct</option>
-             <option value="November">Nov</option>
-             <option value="December">Dec</option>
+             <option value="01">Jan</option>
+             <option value="03">Feb</option>
+             <option value="03">Mar</option>
+             <option value="04">Apr</option>
+             <option value="05">May</option>
+             <option value="06">Jun</option>
+             <option value="07">Jul</option>
+             <option value="08">Aug</option>
+             <option value="09">Sep</option>
+             <option value="10">Oct</option>
+             <option value="11">Nov</option>
+             <option value="12">Dec</option>
              </select>
               
              <select name="Birthday_Year" id="Crime_Year" onChange={this.handleYearChange}>
               
              <option value="-1">Year:</option>
-             <option value="2012">2018</option>
-             <option value="2012">2017</option>
-             <option value="2011">2016</option>
-             <option value="2010">2015</option>
-             <option value="2009">2014</option>
-             <option value="2008">2013</option>
-             <option value="2007">2012</option>
+             <option value="2018">2018</option>
+             <option value="2017">2017</option>
+             <option value="2016">2016</option>
+             <option value="2015">2015</option>
+             <option value="2014">2014</option>
+             <option value="2013">2013</option>
+             <option value="2012">2012</option>
              
              </select>
              </td>
              </tr>
               
-             <br/>
-             <tr>
-             <td>Crime Type</td>
-             <td><Dropdown options={options} id='type' value={this.state.type} onChange={this.handleTypeChange}  placeholder="Select an option" /></td>
-             </tr>
-              
           
-             <br/>
-              
              
              <tr>
              <td> VICTIM GENDER</td>
@@ -313,19 +390,32 @@ console.log(type2);
              <tr>
              <td> CRIMINAL GENDER</td>
              <td>
-              <input type="radio" name="Gender1" id="Gender1" onChange={this.handleCriminalChange} value="Male" />Male
-              <input type="radio" name="Gender1" id="Gender1" onChange={this.handleCriminalChange} value="Female" />Female
-              <input type="radio" name="Gender1" id="Gender1" onChange={this.handleCriminalChange} value="Other" />Other
+              <input type="radio" name="Gender1" id="Gender1" onChange={this.handleCriminalChange} value="Male" />Male<br/>
+              <input type="radio" name="Gender1" id="Gender1" onChange={this.handleCriminalChange} value="Female" />Female<br/>
+              <input type="radio" name="Gender1" id="Gender1" onChange={this.handleCriminalChange} value="Other" />Other<br/>
+             </td>
+             </tr>
+             <br/>
+             <tr>
+             <td> TIME OF CRIME</td>
+             <td>
+             <input type="radio" name="timeRange" id="timeRange" onChange={this.morning} value="Morning" /> Morning<br/>
+           <input type="radio" name="timeRange" id="timeRange" onChange={this.afternoon} value="Morning" /> afternoon<br/>
+           <input type="radio" name="timeRange" id="timeRange" onChange={this.evening} value="Evening" /> Evening<br/>
+           <input type="radio" name="timeRange" id="timeRange" onChange={this.late} value="LateNight" /> LateNight<br/>
              </td>
              </tr>
               
+             <br/>
              <br/>
              <tr>
              <td>DESCRIPTION OF CRIME <br /><br /><br /></td>
              <td><textarea name="Address" id="Address" rows="4" cols="30" onChange={this.handleAddressChange}></textarea></td>
              </tr>
              <br/>
-        
+             <br/>
+             
+              
              <tr>
              <td>LATITUDE</td>
              <td><input type="text" name="latitude"  id= "latitude" value="" onChange={this.handleLatitudeChange} /></td>
@@ -334,6 +424,13 @@ console.log(type2);
              <td>LONGITUDE</td>
              <td><input type="text" name="longitude"  id= "longitude" value="" onChange={this.handleLongitudeChange} readonly="readonly"/></td>
              </tr>
+             <br/>
+             <tr>
+             <td>Crime Type</td>
+             <td><Dropdown options={options} id='type' value={this.state.type} onChange={this.handleTypeChange}  placeholder="Select an option" /></td>
+             </tr>
+              
+          
              <br/>
              <tr>
              <td>COUNTRY</td>

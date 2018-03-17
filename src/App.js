@@ -16,6 +16,7 @@ import RegCrime from './RegCrime';
 import SearchCrime from './SearchCrime';
 import UserProfile from './UserProfile';
 import Loginheader from './Loginheader';
+import ForgotPassword from './ForgotPassword';
 
 
 
@@ -31,6 +32,7 @@ class App extends Component {
       <Route path="/SearchCrime" exact  component={SearchCrime} />
       <Route path="/User" exact  component={UserProfile} />
       <Route path="/LoginHeader" exact  component={Loginheader} />
+      <Route path="/ResetPassword" exact  component={ForgotPassword} />
     </div>
     );
   }

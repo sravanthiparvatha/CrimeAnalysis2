@@ -115,16 +115,14 @@ class Registerform extends React.Component{
     
                                 <div className="login-form loginw3-agile">
                                     <div className="agile-row">
-                                    <br/>
-                                    <br/>
-                                    <br/>
-                                        <h1><u>SIGN UP</u></h1><br></br>
+                                    
+                                        <h1><u>SIGN UP</u></h1>
                                         <div className="login-agileits-top">
                                             <form autoComplete="off" onSubmit={this.handleSubmit}>
                                             <p>
                                                 User Name &emsp;&emsp;&emsp; &nbsp;  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                                                <div class="inner-addon left-addon">
-    <i className="glyphicon glyphicon-user"></i>
+                                         
+  
   
                                                     <input type="text"
                                                     className="name"
@@ -133,17 +131,14 @@ class Registerform extends React.Component{
                                                     maxLength="12"
                                                     autoFocus
                                                     
-                                                    placeholder="Enter username"
+                                                    placeholder="      Enter username"
                                                     onChange={this.handleNameChange}
                                                     value={this.state.name} required />
                                                    
-</div>
 
                                                
-                                                    </p>
-
-                                                    <p>
-                                                Email id<br/>
+                              
+                                                <br/>Email id<br/>
 
                                                 <input type="email"
                                                     className="email"
@@ -151,22 +146,23 @@ class Registerform extends React.Component{
                                                     autoFocus
                                                     placeholder="Enter email id"
                                                     onChange={this.handleEmailChange}
-                                                    value={this.state.email} required /><br/>
+                                                    value={this.state.email} required />
                                                         <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small>
-                                                    </p>
-                                                Password <div class="inner-addon left-addon">
-                                                <i className="glyphicon glyphicon-lock"></i>
+                                                    <br/><br/>
+                                                Password
+                                               
                                                 <input type="password"
                                                     className="password"
                                                     id="password"
                                                     required pattern="^[A-Za-z0-9_.-@]*$"
                                                    required minLength="6" maxLength="10"
                                                     autoFocus
-                                                    placeholder="Enter password"
+                                                    placeholder="      Enter password"
                                                     onChange={this.handlePasswordChange}
                                                     value={this.state.password} />
-                                                   </div> <br/>
-                                                <p>Confirm Password<br/>
+                                                  <br/>
+                                                   
+                                                Confirm Password
                                                 <input type="password"
                                                     className="confirmPassword"
                                                     id="confirmPassword"
@@ -176,28 +172,25 @@ class Registerform extends React.Component{
                                                     placeholder="Re-enter password"
                                                     onChange={this.handleConfirmPasswordChange}
                                                     value={this.state.confirmPassword} />
-                                                     <br/>
-                                                      
-                                                    <br/>
+                                                    
                                                 <label className="anim">
                                                 
                                             <input type = "checkbox"/>&emsp;
                                             Remember me?
                                                    
-                                                </label>  &emsp; 
-                                                <br>
-                                                </br>
-                                                <br></br>
-                                                &emsp;&emsp; &emsp;&emsp; &emsp;&emsp; &emsp;&emsp; &emsp;&emsp;
-                                               <button> <i class="glyphicon glyphicon-ok"></i>SIGNUP</button>
+                                                </label>  &emsp; &emsp; 
                                                 
-                                                </p>
-                                            </form>
-                                            
-                                        </div>
+                                                <br></br>
+                                                &emsp;&emsp; &emsp;&emsp; &emsp;&emsp; &emsp;&emsp; &emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;
+                                               <button> <i class="glyphicon glyphicon-ok"></i>  SIGNUP</button>    
+                                                
                                         <div className="login-agileits-bottom wthree">
-                                        <h6>Already a user?&emsp; &nbsp;
+                                        <h6>Already a user?&emsp; 
                                         <Link to='/Login' >  Login</Link></h6>
+                                        <div id='chart-container'></div>
+                                        </div>
+                                        </p>
+                                        </form>
                                         </div>
                                     </div>
                                 </div>

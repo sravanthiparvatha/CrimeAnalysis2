@@ -131,12 +131,12 @@ h1 {
     color: rgb(15, 14, 14);
     cursor: pointer;
     position: relative;
-    margin: 2.5em 0;
+    margin: 1em 0;
     display: inline-block;
     letter-spacing: 1px;
 }
 input.checkbox {
-    background:#703925;
+    background:#702725;
     cursor: pointer;
 	vertical-align: middle;
 }
@@ -206,7 +206,7 @@ input.checkbox:checked:after {
     -ms-transition: 0.5s all;
 } 
 .login-agileits-bottom {
-    margin-top: 3em;
+    margin-top: 1em;
     text-align: center; 
 }
 .login-agileits-bottom h6 {
@@ -214,7 +214,7 @@ input.checkbox:checked:after {
     letter-spacing: 1px;
 }
 .login-agileits-bottom h6 a {
-    color: #fff; 
+    color: rgb(201, 22, 22); 
     -webkit-transition: 0.5s all;
     -moz-transition: 0.5s all;
     -o-transition: 0.5s all;
@@ -376,7 +376,7 @@ input.checkbox:checked:after {
 	-ms-transition: 0.5s; 	
 	transition: 0.5s; 
 	border-radius: 10px;
-	background: -webkit-radial-gradient(80px 40px, circle, #130303, rgba(0, 0, 0, 0));
+	background: -webkit-radial-gradient(80px 40px, circle, #130303, rgba(52, 43, 131, 0));
 	background: radial-gradient(circle at 80px 40px, #0a0303, rgba(0, 0, 0, 0));
 }
 /*-- //effect --*/
@@ -389,7 +389,7 @@ input.checkbox:checked:after {
 }
 @media(max-width:1366px){
 .login-form h1 {
-    font-size: 2.8em; 
+    font-size: 2em; 
 } 
 }
 @media(max-width:1280px){
@@ -405,7 +405,7 @@ input.checkbox:checked:after {
     width: 42%;
 }
 .login-agileits-bottom {
-    margin-top: 2.5em; 
+    margin-top: 1em; 
 }
 } 
 @media(max-width:800px){
@@ -450,7 +450,7 @@ input.checkbox:checked:after {
 	margin: 2em 0;
 } 
 .login-agileits-bottom {
-    margin-top: 1.5em;
+    margin-top: 1em;
 }
 .w3lsfooteragileits p { 
     margin: 2em 2em; 

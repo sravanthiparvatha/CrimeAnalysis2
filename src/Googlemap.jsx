@@ -118,7 +118,7 @@ var googleMapsInfobox = require("google-maps-infobox")
 
 const MapWithAMarkerClusterer = compose(
   withStateHandlers(() => ({
-    isOpen: false,
+    isOpen: true,
   }), {
     onToggleOpen: ({ isOpen }) => () => ({
       isOpen: !isOpen,
@@ -157,7 +157,7 @@ const MapWithAMarkerClusterer = compose(
         onClick={props.onToggleOpen}
           position={{ lat: marker.lat, lng: marker.lng }}  
         >
-         {props.isOpen &&<InfoWindow onCloseClick={props.onToggleOpen(marker)}>
+         {<InfoWindow onCloseClick={props.onToggleOpen}>
         <div>
         
           Controlled zoom: {marker.type}

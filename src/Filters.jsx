@@ -11,12 +11,12 @@ class Filters extends React.Component
         super(props);
 
         this.state = {
-           /* past3days:"",
+            past3days:"",
            pastweek:"",
            pastmonth:"",
            past6months:"",
            past3months:"",
-           sun:"",
+           /*sun:"",
            mon:"",
            tue:"",
            wed:"",
@@ -40,13 +40,13 @@ class Filters extends React.Component
            drugs:"",
            accident:""
         };
-      /* this.past3days=this.past3days.bind(this);
+       this.past3days=this.past3days.bind(this);
        this.past3months=this.past3months.bind(this);
        this.pastweek=this.pastweek.bind(this);
        this.pastmonth=this.pastmonth.bind(this);
        this.past6months=this.past6months.bind(this);
        this.past3months=this.past3months.bind(this);
-       
+      /* 
        this.sun=this.sun.bind(this);
        this.mon=this.mon.bind(this);
        this.tue=this.tue.bind(this);
@@ -76,7 +76,7 @@ class Filters extends React.Component
        this.handleSubmit=this.handleSubmit.bind(this);
          
     }
-  /*  pastweek(event)
+   pastweek(event)
     {
         console.log('in handle day change');
         if(event.target.checked)
@@ -126,7 +126,7 @@ class Filters extends React.Component
     past6months(event)
     {
         console.log('in handle day change');
-        if(event.target.checked)
+        if(event.target.value)
     this.setState({
         past6months : "true"
     });
@@ -151,7 +151,7 @@ class Filters extends React.Component
     });
     console.log('end of past 3mnths');
 
-    }
+    }/*
     sun(event)
     {
         console.log('in handle dayy change3424');
@@ -515,6 +515,18 @@ class Filters extends React.Component
     if(this.state.late)
     time+="late ";
          
+let daterange="";
+if(this.state.past3days)
+daterange+="past3days ";
+     if(this.state.pastweek)
+     daterange+="pastweek ";
+    if(this.state.pastmonth)
+    daterange+="pastmonth ";
+    if(this.state.past6months)
+    daterange+="past6months ";
+    if(this.state.past3months)
+    daterange+="past3months ";
+   
 
     if(this.state.ass)
     type20+="ass ";
@@ -542,8 +554,8 @@ class Filters extends React.Component
     type20+="accident ";
     console.log('time '+time+'type  '+type20);
                 request
-                .post("http://10.10.200.14:9000/exploreMap")
-                    .send({ time:time,crime1:type20  })
+                .post("http://10.10.200.14:9000/exploreMap/getParticularDetails")
+                    .send({ daterange:daterange,time:time,crime1:type20  })
                     .then(
                     (response) => {
                         // response.body will be the returned data from your play app, which is an array of objects
@@ -558,7 +570,32 @@ class Filters extends React.Component
 
 render(){
     return(<div className="container"> <br/>  <br/> <br/>  <br/> 
-                
+                <tr>  <br/>  <br/>
+             <td> DATE RANGE</td>
+             <br/><br/>
+             <td>
+                 <br/><br/>
+           
+                 <td>
+            <input type="radio" name="Gender" id="Gender" onChange={this.handleVictimChange} value=" Past 3 days" />  Male<br/>
+             <input type="radio" name="Gender" id="Gender" onChange={this.handleVictimChange} value="Past week"/>Female<br/>
+          <input type="radio" name="Gender" id="Gender" onChange={this.handleVictimChange} value="Other" />Other<br/>
+          <input type="radio" name="Gender" id="Gender" onChange={this.handleVictimChange} value=" Past 3 days" />  Male<br/>
+             <input type="radio" name="Gender" id="Gender" onChange={this.handleVictimChange} value="Past week"/>Female<br/>
+          <input type="radio" name="Gender" id="Gender" onChange={this.handleVictimChange} value="Other" />Other<br/>
+             </td>
+
+
+           <input type="radio" name="dateRange" id="dateRange" onChange={this.past3days} value=" Past 3 days" /> Past 3 days<br/>
+            <input type="radio" name="dateRange" id="dateRange" onChange={this.pastweek}  value="Past week" />  Past week<br/>
+            <input type="radio" name="dateRange" id="dateRange" onChange={this.pastmonth}  value=" Past month" />   Past month<br/>
+           <input type="radio" name="dateRange" id="dateRange" onChange={this.past6months}  value="Past 6 months" /> Past 6 months <br/>
+             <input type="radio" name="dateRange" id="dateRange" onChange={this.past3months}  value="Past 3 months" />   Past 3 months<br/>
+             <input type="radio" name="dateRange" id="dateRange" onChange={this.handleDateChange}  value="Custom range" />   Custom range<br/>
+             <input type="date" data-date="" data-date-format="DD MMMM YYYY" />
+             </td>
+             </tr>
+
 <tr>  <br/>  <br/>
              <td> TIME RANGE</td>
              <br/><br/>

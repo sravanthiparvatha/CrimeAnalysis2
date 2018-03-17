@@ -14,10 +14,10 @@ render(){
  return(<div class="wrap">
  <Loginheader/>
     <div className="fleft"><div  id="fil"> <h1> FILTERS</h1> </div><Filters/></div>
-    <div className="fright">    <Googlemap/><Chart/>
+    <div className="fright">    <Googlemap/>
 
     </div>
-    <div className="fright1"> <br/>  <br/>  <br/>  <br/>  <br/>  <br/> <h3>ANALYSIS</h3><Chart/></div>
+    <div className="fright1"> <br/>  <br/>  <br/>  <br/>  <br/>  <br/> <h1>ANALYSIS</h1><Chart/></div>
 </div>);
 }
 }
