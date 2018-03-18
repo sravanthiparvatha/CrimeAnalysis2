@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 //import React from 'react';
 //import { Map, Marker, TileLayer, Polyline } from 'react-leaflet';
 //import request from 'superagent';
-
+import Regcrime from './Regcrime.css';
 import CampMapContainer from './CampMapContainer';
 //import Map from './Map';
 //import React from 'react';
@@ -240,7 +240,7 @@ console.log('date modified  '+dd);
             state: event.target.value,
         });
        
-    }
+    } 
 
    
 
@@ -287,26 +287,29 @@ console.log('date modified  '+dd);
  render()
      {
          return(
-             <div>
-            
-             <title>Student Registration Form</title>
              
-            
-             <h3>CRIME REGISTRATION FORM</h3>
+            <div id="sample" className="main-agileinfo slider ">
+				<div className="container">
+					
+						<div className="block text main-agileits">
+					
+
+							<div className="login-form loginw3-agile">
+								<div className="agile-row">
              
-             <form autoComplete="off" onSubmit={this.handleSubmitChange}>
-              
-             <table align="center" >
-              
-            
-            
-              
              <br/>
-             <tr>
-             <td>DATE OF CRIME</td>
+            
+             <h1>CRIME REGISTRATION FORM</h1>
+             
+             <form autoComplete="off" id="my-form" onSubmit={this.handleSubmitChange}>
               
-             <td>
-             <select name="Birthday_day" id="Crime_Day" onChange={this.handleDayChange}>
+             
+            
+             <br/>
+             <div className="form-inline"> 
+             <label for="state_id" className="control-label">DATE OF CRIME</label>
+             <br/>   
+             <select className="form-control" name="Birthday_day" id="Crime_Day" onChange={this.handleDayChange}>
              <option value="-1">Day:</option>
              <option value="1">1</option>
              <option value="2">2</option>
@@ -345,7 +348,7 @@ console.log('date modified  '+dd);
              <option value="31">31</option>
              </select>
               
-             <select id="Birthday_Month" name="Crime_Month" onChange={this.handleMonthChange}>
+             <select className="form-control" id="Birthday_Month" name="Crime_Month" onChange={this.handleMonthChange}>
              <option value="-1">Month:</option>
              <option value="01">Jan</option>
              <option value="03">Feb</option>
@@ -361,7 +364,7 @@ console.log('date modified  '+dd);
              <option value="12">Dec</option>
              </select>
               
-             <select name="Birthday_Year" id="Crime_Year" onChange={this.handleYearChange}>
+             <select className="form-control" name="Birthday_Year" id="Crime_Year" onChange={this.handleYearChange}>
               
              <option value="-1">Year:</option>
              <option value="2018">2018</option>
@@ -373,72 +376,72 @@ console.log('date modified  '+dd);
              <option value="2012">2012</option>
              
              </select>
-             </td>
-             </tr>
+                  
+                
               
           
-             
-             <tr>
-             <td> VICTIM GENDER</td>
-             <td>
+             </div>
+              <br/>
+              VICTIM GENDER<br/>
+              <br/>
             <input type="radio" name="Gender" id="Gender" onChange={this.handleVictimChange} value="Male" />  Male<br/>
              <input type="radio" name="Gender" id="Gender" onChange={this.handleVictimChange} value="Female" />Female<br/>
           <input type="radio" name="Gender" id="Gender" onChange={this.handleVictimChange} value="Other" />Other<br/>
-             </td>
-             </tr>
+                  
+                            
              <br/>
-             <tr>
-             <td> CRIMINAL GENDER</td>
-             <td>
+              
+               CRIMINAL GENDER     
+         <br/>     <br/>
               <input type="radio" name="Gender1" id="Gender1" onChange={this.handleCriminalChange} value="Male" />Male<br/>
               <input type="radio" name="Gender1" id="Gender1" onChange={this.handleCriminalChange} value="Female" />Female<br/>
               <input type="radio" name="Gender1" id="Gender1" onChange={this.handleCriminalChange} value="Other" />Other<br/>
-             </td>
-             </tr>
+                  
+                
              <br/>
-             <tr>
-             <td> TIME OF CRIME</td>
-             <td>
+              
+               TIME OF CRIME     
+              <br/><br/>
              <input type="radio" name="timeRange" id="timeRange" onChange={this.morning} value="Morning" /> Morning<br/>
            <input type="radio" name="timeRange" id="timeRange" onChange={this.afternoon} value="Morning" /> afternoon<br/>
            <input type="radio" name="timeRange" id="timeRange" onChange={this.evening} value="Evening" /> Evening<br/>
            <input type="radio" name="timeRange" id="timeRange" onChange={this.late} value="LateNight" /> LateNight<br/>
-             </td>
-             </tr>
+                  
+                
               
              <br/>
              <br/>
-             <tr>
-             <td>DESCRIPTION OF CRIME <br /><br /><br /></td>
-             <td><textarea name="Address" id="Address" rows="4" cols="30" onChange={this.handleAddressChange}></textarea></td>
-             </tr>
+              
+              DESCRIPTION OF CRIME <br /><br /><br />     
+              <textarea name="Address" id="Address" rows="4" cols="30" onChange={this.handleAddressChange}></textarea>     
+                
              <br/>
              <br/>
              
               
-             <tr>
-             <td>LATITUDE</td>
-             <td><input type="text" name="latitude"  id= "latitude" value="" onChange={this.handleLatitudeChange} /></td>
-             </tr>
-             <tr>
-             <td>LONGITUDE</td>
-             <td><input type="text" name="longitude"  id= "longitude" value="" onChange={this.handleLongitudeChange} readonly="readonly"/></td>
-             </tr>
+              
+              LATITUDE     
+              <input type="text" name="latitude"  id= "latitude" value="" onChange={this.handleLatitudeChange} />     
+                
+              
+              LONGITUDE     
+              <input type="text" name="longitude"  id= "longitude" value="" onChange={this.handleLongitudeChange} readonly="readonly"/>     
+                
              <br/>
-             <tr>
-             <td>Crime Type</td>
-             <td><Dropdown options={options} id='type' value={this.state.type} onChange={this.handleTypeChange}  placeholder="Select an option" /></td>
-             </tr>
+              
+              Crime Type     
+              <Dropdown options={options} id='type' value={this.state.type} onChange={this.handleTypeChange}  placeholder="Select an option" />     
+                
               
           
              <br/>
-             <tr>
-             <td>COUNTRY</td>
-             <td><input type="text" name="Country" id="Country" value="India" readonly="readonly" onChange={this.handleCountryChange}/></td>
-             </tr>
+              
+              COUNTRY     
+              <input type="text" name="Country" id="Country" value="India" readonly="readonly" onChange={this.handleCountryChange}/>     
+                
              <br/>
-             <tr>
-             <td><Gmaps
+              
+        <Gmaps
         width={'800px'}
         height={'600px'}
         lat={coords.lat}
@@ -460,19 +463,25 @@ console.log('date modified  '+dd);
           onCloseClick={this.onCloseClick} />
        
          
-      </Gmaps></td>
-            </tr>
-            <tr>
+      </Gmaps>     
+               
+             
                 <br/>
                 <br/>
             
-             <td> <button> <i class="glyphicon glyphicon-ok"></i>SUBMIT</button></td>
-             </tr>
+               <button> <i class="glyphicon glyphicon-ok"></i>SUBMIT</button>     
+                
        
-             </table>
+                   
              </form>
+            
              </div>
-             
+							</div>
+						</div>
+					
+				</div>
+			</div>
+ 
             
          );
      }

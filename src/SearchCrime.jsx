@@ -7,11 +7,12 @@ import Loginheader from './Loginheader';
 import Google from './Google';
 import Googlemap from './Googlemap';
 import Chart from './Chart';
+import Regcrime from './Regcrime.css';
 
 class SearchCrime extends React.Component
 {
 render(){
- return(<div class="wrap">
+ return(<div className="wrap">
  <Loginheader/>
     <div className="fleft"><div  id="fil"> <h1> FILTERS</h1> </div><Filters/></div>
     <div className="fright">  <br/><br/>  <Googlemap/>

@@ -1,12 +1,15 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import UserProfile from './UserProfile';
+import Header from './Header';
 class Loginheader extends React.Component{
   constructor(props)
   {
     super(props);
     this.logout=this.logout.bind(this);
   }
+
+
   logout()
   {
     console.log(" in logut")
@@ -16,26 +19,30 @@ class Loginheader extends React.Component{
   render()
    {
     var accesstoken;
+    var role= "admin";//localStorage.getItem("role");
     // let value=0;
     accesstoken = localStorage.getItem("accesstoken");
-       if(accesstoken)
-       return(<div class="app-header">
-       <nav class="navbar navbar-default navbar-fixed-top" role="navigation" ng-style="{'background-color' : appHeader.backgroundColor,'border-color': ''}">
+       if(role=="user")
+       return(<div className="app-header">
+       <nav className="navbar navbar-default navbar-fixed-top" role="navigation" ng-style="{'background-color' : appHeader.backgroundColor,'border-color': ''}">
        
-     <center><Link to='/User' ><h1 class="top-menu pull-right">  <i class="glyphicon glyphicon-user"></i></h1></Link></center>
-     <Link to='/' > <button class="top-menu pull-right" onClick={this.logout} >LOGOUT</button></Link>
-     
+      <Link to='/' > <button className="top-menu pull-right" onClick={this.logout} >LOGOUT</button></Link>
+      <center><Link to='/User' ><h1 className="top-menu pull-left">  <i className="glyphicon glyphicon-user"></i></h1></Link></center>
+    
        </nav>
      </div>);
-     else
-    return(<div>
-      <div class="app-header">
-       <nav class="navbar navbar-default navbar-fixed-top" role="navigation" ng-style="{'background-color' : appHeader.backgroundColor,'border-color': ''}">
-       
-       <Link to='/Register' > <button class="top-menu pull-right">signin</button></Link>
-     <Link to='/Login' > <button class="top-menu pull-right">login</button></Link>
-     </nav>
+      if(role=="admin")
+      return(<div className="app-header">
+       <nav className="navbar navbar-default navbar-fixed-top" role="navigation" ng-style="{'background-color' : appHeader.backgroundColor,'border-color': ''}">
+  <div className="top-menu pull-right">     <center><Link to='/MapContainer' ><h1 className="top-menu pull-left">  <i className="glyphicon glyphicon-plus"></i></h1></Link></center>
+    
+    <Link to='/User' ><h1 className="top-menu pull-right">  <i className="glyphicon glyphicon-user"></i></h1></Link>
+     <Link to='/' > <button className="top-menu pull-right" onClick={this.logout} >LOGOUT</button></Link>
      </div>
-    </div>); }
+       </nav>
+     </div>);
+  else
+  return(<Header/>); 
+  }
 }
 export default Loginheader;

@@ -18,6 +18,7 @@ import UserProfile from './UserProfile';
 import Loginheader from './Loginheader';
 import ForgotPassword from './ForgotPassword';
 import Goo from './Goo';
+import AdminHeader from './AdminHeader';
 
 
 
@@ -35,6 +36,7 @@ class App extends Component {
       <Route path="/LoginHeader" exact  component={Loginheader} />
       <Route path="/ResetPassword" exact  component={ForgotPassword} />
       <Route path="/G" exact  component={Goo} />
+      <Route path="/A" exact  component={AdminHeader} />
     </div>
     );
   }

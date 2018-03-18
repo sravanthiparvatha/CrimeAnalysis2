@@ -1,0 +1,19 @@
+#sample {border:1px dotted #666666;}
+#sample h2 {text-align:center;}
+#sample p {text-align:center;padding:.4em 3em 0em;color:#000000;}
+#my-form {box-sizing:border-box;margin:0 auto;padding-left:6em;text-align:left;width:70%;color:#0c0e0d;}
+#my-form label {color:#000000;}
+#my-form .data-entry {padding:.5em 8%;}
+#my-form textarea {padding:.1em 8%;}
+#my-form p {text-align:left;margin:0;padding:1em 0 .1em;}
+#my-form select {margin-bottom:1em;font-size:95%;padding:.1em .5em;}
+#my-form .button {width:80px;height:30px;font-size:110%;margin:.4em;}
+#my-form .radio {white-space:nowrap;display:inline-block;line-height:2em;margin:.1em 0;}
+#my-form input[type=radio]{margin-right:.6em;}
+/* resize table for mobile */
+/*@media all and (min-width: 10px) and (max-width:660px) {
+*/#sample {font-size:90%;border:1px solid rgb(22, 14, 14);width:99%;text-align:center;margin:auto;}
+#sample p {margin:0;padding:0 .2em;}
+#my-form {box-sizing:border-box;width:96%;margin:0;padding:1em 1.5em 1em 3.5em;text-align:left;}
+#my-form p {margin:0;padding:0 .2em;}
+#my-form .radio {white-space:nowrap;display:inline-block;line-height:1em;margin-top:.2em;}

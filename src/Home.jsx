@@ -10,6 +10,7 @@ import Explore from './Explore';
 //import logo from './logo.svg';
 //import Loginform from './Loginform';
 import Map from './Map';
+import Footer from './Footer';
 
 
 
@@ -30,6 +31,7 @@ class Home extends Component {
                     <br/>    <br/>    <br/>    <br/>    <br/>    <br/>    <br/>    <br/>    <br/>    <br/>    <br/>    <br/>
                     <div id="mapid"></div>
               <AboutUs/>
+              <Footer/>
             </div>  
         </section>
       </div>

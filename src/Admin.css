@@ -1,0 +1,249 @@
+/*Admin*/
+nav#adminHeader.navbar{
+    color:#2c0c01;
+  }
+  li#admin{
+    padding-left: 600px;
+  }
+  #tf-admin{
+    background: url(images/images.jpg);
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+    background-repeat: no-repeat;
+    color: #cfcfcf;
+  }
+  
+  #tf-admin .overlay{
+    background: -moz-linear-gradient(top,  rgba(0,0,0,0.8) 0%, rgba(0,0,0,0.73) 17%, rgba(0,0,0,0.66) 35%, rgba(0,0,0,0.55) 62%, rgba(0,0,0,0.4) 100%); /* FF3.6+ */
+    background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,rgba(0,0,0,0.8)), color-stop(17%,rgba(0,0,0,0.73)), color-stop(35%,rgba(0,0,0,0.66)), color-stop(62%,rgba(0,0,0,0.55)), color-stop(100%,rgba(0,0,0,0.4))); /* Chrome,Safari4+ */
+    background: -webkit-linear-gradient(top,  rgba(0,0,0,0.8) 0%,rgba(0,0,0,0.73) 17%,rgba(0,0,0,0.66) 35%,rgba(0,0,0,0.55) 62%,rgba(0,0,0,0.4) 100%); /* Chrome10+,Safari5.1+ */
+    background: -o-linear-gradient(top,  rgba(0,0,0,0.8) 0%,rgba(0,0,0,0.73) 17%,rgba(0,0,0,0.66) 35%,rgba(0,0,0,0.55) 62%,rgba(0,0,0,0.4) 100%); /* Opera 11.10+ */
+    background: -ms-linear-gradient(top,  rgba(0,0,0,0.8) 0%,rgba(0,0,0,0.73) 17%,rgba(0,0,0,0.66) 35%,rgba(0,0,0,0.55) 62%,rgba(0,0,0,0.4) 100%); /* IE10+ */
+    background: linear-gradient(to bottom,  rgba(0,0,0,0.8) 0%,rgba(0,0,0,0.73) 17%,rgba(0,0,0,0.66) 35%,rgba(0,0,0,0.55) 62%,rgba(0,0,0,0.4) 100%); /* W3C */
+    min-height: 750px;
+    height:all;
+    background-attachment: fixed;
+  }
+  .wrapper{
+      background-image: url(images/admin_back.jpg);
+    background-size: cover;
+    height: 1300px;
+    background-position: center;
+    background-attachment: fixed;
+    background-repeat: no-repeat;
+    color: #cfcfcf;
+  }
+  #content1{
+    background-image: url(images/admin_back.jpg);
+  background-size: cover;
+  height: 1300px;
+  background-position: center;
+  background-attachment: fixed;
+  background-repeat: no-repeat;
+  color:#fcac46;
+  }
+  .col{
+  
+      text-align:center;
+  }
+  
+  
+  body {
+      font-family: 'Open sans', sans serif;
+  }
+  
+  
+   #wrapper {
+      width: 100%;
+      background:#202020;
+  }
+  
+  #page-wrapper {
+      padding: 15px 15px;
+      min-height: 600px;
+      background:#F3F3F3;
+  
+  }
+  #page-inner {
+      width:100%;
+      margin:10px 20px 10px 0px;
+      background-color:#fff!important;
+      padding:10px;
+      min-height:1200px;
+  }
+  
+  .text-center {
+      text-align:center;
+  }
+  .no-boder {
+      border:1px solid #f3f3f3;
+  }
+  h2 {
+      color: #fcac46;
+      text-align:center;
+  }
+  h4 {
+      padding-top:10px;
+  }
+  .square-btn-adjust {
+      border: 0px solid transparent;
+     -webkit-border-radius: 0px;
+  -moz-border-radius: 0px;
+  border-radius: 0px;
+  
+  }
+  x2{
+      font-size:250%;
+      padding-top:20px;
+      padding-left: 50%;
+      line-height: 50px;
+      font-family: 'Algerian';
+  }
+  x {
+      font-size:250%;
+      line-height:25px;
+      padding-top:20px;
+      padding-left: 50%;
+      line-height: 50px;
+      font-family: 'Monotype Corsiva'
+  }
+  
+  .main-text {
+      font-size: 25px;
+      font-weight:600;
+  }
+  
+  /*==============================================
+      MENU STYLES
+      =============================================*/
+  
+  
+  .user-image {
+      margin: 25px auto;
+  -webkit-border-radius: 10px;
+  -moz-border-radius: 10px;
+  border-radius: 10px;
+  max-height:70px;
+  max-width:70px;
+  }
+  
+  .navbar-cls-top .navbar-brand {
+  color: #fff;
+  background: #C90000;
+  width: 260px;
+  text-align: center;
+  height: 60px;
+  font-size: 32px;
+  font-weight: 700;
+  }
+  .active-menu {
+      background-color:#C90000!important;
+  }
+  
+  .arrow {
+      float: right;
+  }
+  
+  .fa.arrow:before {
+      content: "\f104";
+  }
+  
+  .active > a > .fa.arrow:before {
+      content: "\f107";
+  }
+  
+  
+  
+  
+  
+  
+  .navbar-side {
+      border:none;
+      background-color: #202020;
+  
+  }
+  .navbar-cls-top {
+      background:#4D4D4D;
+      border-bottom:none;
+  
+  }
+  .navbar-cls-top .navbar-brand:hover {
+  
+  background: #C90000;
+  color:#fff;
+  
+  }
+  
+  .navbar-light {
+  border:0px solid black;
+  
+  }
+  .navbar-header {
+      background: #A70303;
+  }
+  .navbar-light .navbar-toggle:hover, .navbar-light .navbar-toggle:focus {
+  background-color: #B40101;
+  }
+  .navbar-light .navbar-toggle {
+  border-color: #fff;
+  }
+  
+  .navbar-light .navbar-toggle .icon-bar {
+  background-color: #FFF;
+  }
+  .nav > li {
+      margin-right:10px;
+  }
+  /*==============================================
+      UI ELEMENTS STYLES
+      =============================================*/
+  .btn-circle {
+  width: 50px;
+  height: 50px;
+  padding: 6px 0;
+   -webkit-border-radius: 25px;
+  -moz-border-radius: 25px;
+  border-radius: 25px;
+  text-align: center;
+  font-size: 12px;
+  line-height: 1.428571429;
+  }
+  
+  /*==============================================
+      MEDIA QUERIES
+      =============================================*/
+  
+   @media(min-width:768px) {
+       #page-wrapper{
+                 margin: 0 0 0 260px;
+          padding: 15px 30px;
+          min-height: 1200px;
+  
+      }
+  
+  
+      .navbar-side {
+          z-index: 1;
+          position: absolute;
+          width: 260px;
+      }
+  
+     .navbar {
+   border-radius: 0px;
+  }
+  
+  }
+  /*#content ,#Update ,#content1{
+    padding-top: 70px;
+  }*/
+  #pac-input {
+      z-index: 0;
+      position: absolute;
+      padding-top: 7px;
+      left: 113px;
+      width: 70%;
+  }
+  #logout{
+    cursor:pointer;
+  }

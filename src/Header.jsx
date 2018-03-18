@@ -18,10 +18,8 @@ class Header extends React.Component {
         <li><Link to='/Login'><i class="glyphicon glyphicon-user"></i>LOGIN</Link></li>
         <li><Link to='/Register'><i class="glyphicon glyphicon-user"></i>SIGNUP</Link></li>
    
-        
-        <li><a href="search"><i class="glyphicon glyphicon-search"></i>SEARCH</a></li>
-        <li><a href="aboutus">ABOUT US</a></li>
-      </ul>
+       <li><Link to='/Contact'>CONTACT US</Link></li>    
+        </ul>
     </div>
   </div>
 </nav>
