@@ -2,7 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { Map, Marker, Popup, TileLayer, Polyline } from 'react-leaflet';
 import request from 'superagent';
-class Googlemap extends React.Component{
+class Goo extends React.Component{
   constructor(props) {
     super(props);
     this.state= {
@@ -61,10 +61,16 @@ return(
       </Popup>
     </Marker>
       )) }
-    
+    <Marker position={{ lat: 17.3615687,lng: 78.4724758}}>
+      <Popup>
+        <span>
+          <br /> Macca Masjid<br/>Timings from 6:00 am to 12:00 pm<br/>1500 visitors per day<br/>
+        </span>
+      </Popup>
+    </Marker>
   </Map>
 );
 }
 }
 
-export default Googlemap;
+export default Goo;
