@@ -2,9 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { Map, Marker, Popup, TileLayer, Polyline } from 'react-leaflet';
 import request from 'superagent';
-import Cluster from './Cluster';
-import { Link } from 'react-router-dom';
-//import MarkerClusterGroup from 'react-leaflet-markercluster';
+import MarkerClusterGroup from 'react-leaflet-markercluster';
 class Googlemap extends React.Component{
   constructor(props) {
     super(props);
@@ -49,29 +47,25 @@ class Googlemap extends React.Component{
 */
 render(){
 return(
-<div>
 
-  <Map center={{lat:17.3850,lng: 78.4867}} zoom={15}>
+  <Map center={{lat:17.3850,lng: 78.4867}} zoom={15} >
     <TileLayer
       url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
       attribution="&copy; <a href=&quot;http://osm.org/copyright&quot;>OpenStreetMap</a> contributors"
     />
- 
+    <MarkerClusterGroup wrapperOptions={{enableDefaultStyle: true}} showCoverageOnHover={true}>
      {this.props.markers.map((marker,i) => (
     <Marker position={{ lat: marker.lat,lng: marker.lng}}>
       <Popup>
         <span>
-       Criminal Gender: {marker.gender}<br/>
-       Victim Gender: {marker.gender1}<br/>
-        Descrption:  {marker.address}<br/>
-       Address :{marker.desc} </span>
+         {marker.address}
+        </span>
       </Popup>
     </Marker>
 
       )) }
-  
+    </MarkerClusterGroup>    
   </Map>
-  </div>
 );
 }
 }

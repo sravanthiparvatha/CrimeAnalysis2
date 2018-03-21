@@ -38,12 +38,7 @@ class HeaderAfterLog extends React.Component {
 		role=result1.role;
 		
 		console.log(role);
-        if(role==="User"){
-        window.location.href="/userprofile";   }
-        else{
-            window.location.href ="/clientprofile";
-        }
-           
+      
     })
     .catch(function(error){
         console.log(error);
@@ -59,9 +54,6 @@ class HeaderAfterLog extends React.Component {
                 <div id="header-sroll">
                    
                     <Navbar.Form>
-                        <Navbar.Brand>
-                            <Link to='/myhome' class="white"> </Link>
-                        </Navbar.Brand>
                         <Nav pullRight>
                            <ButtonToolbar>
                            <span class="glyphicons glyphicons-user"></span>

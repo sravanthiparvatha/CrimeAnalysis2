@@ -11,7 +11,7 @@ import Explore from './Explore';
 //import Loginform from './Loginform';
 import Map from './Map';
 import Footer from './Footer';
-
+import Chart from './Chart';
 
 
 class Home extends Component {
@@ -30,6 +30,7 @@ class Home extends Component {
                 <Explore/>
                     <br/>    <br/>    <br/>    <br/>    <br/>    <br/>    <br/>    <br/>    <br/>    <br/>    <br/>    <br/>
                     <div id="mapid"></div>
+                    <Chart/>
               <AboutUs/>
               <Footer/>
             </div>  

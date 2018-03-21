@@ -43,7 +43,7 @@ class Registerform extends React.Component{
                         // following code converts array of objects into the format which my component is accepting.
                         console.log("response is ok");
                         window.alert("Account created sucessfully");
-					window.location.href="/login";
+				
                     });
             }
             else {
@@ -128,7 +128,7 @@ class Registerform extends React.Component{
                                                     className="name"
                                                     id="name"
                                                     pattern="^[A-Za-z0-9_.-@]*$"
-                                                    maxLength="12"
+                                                    maxLength="20"
                                                     autoFocus
                                                     
                                                     placeholder="      Enter username"

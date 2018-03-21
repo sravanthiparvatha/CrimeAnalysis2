@@ -11,7 +11,7 @@ class Footer extends Component {
 <nav id="footer">
         <div className="container">
             <div className="pull-left fnav">
-                <p>ALL RIGHTS RESERVED. COPYRIGHT © 2017. Designed by Team-Mavericks</p>
+                <p>ALL RIGHTS RESERVED. COPYRIGHT © 2018. Designed by Team-CrimeAnalysis</p>
             </div>
             <div className="pull-right fnav">
                 <ul className="footer-social">

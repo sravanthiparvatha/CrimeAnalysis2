@@ -1,7 +1,20 @@
 import React from 'react';
 import {BarChart} from 'react-easy-chart';
 export default class Chart extends React.Component{
- componentWillMount() {
+ 
+  constructor(props) {
+    super(props);
+    this.state= {
+      /*user:"",
+      locations: {
+        "gnit":[17.4118166,78.3967619],
+        "charminar":[17.3615687,78.4724758]
+        */
+      markers:[],
+      markers1:[],
+      markers2:[]
+      }
+     } componentWillMount() {
     
     console.log('in will mount');
   /*(this.setState({ markers: [
@@ -23,7 +36,7 @@ export default class Chart extends React.Component{
       .then(res => res.json())
       .then(result => {
         console.log(result);
-     // this.setState({ markers: result });
+      this.setState({ markers: result });
        // console.log(this.state.markers);
        // console.log('after reading');
       });
@@ -33,7 +46,7 @@ export default class Chart extends React.Component{
       
         return(<div>
 
-         <h2>Violent</h2>
+         <h2>Violent Crimes</h2>
           <BarChart
           axisLabels={{x: '', y: 'My y Axis'}}
           axes
@@ -41,17 +54,31 @@ export default class Chart extends React.Component{
           colorBars
           height={250}
           width={650}
-          data={[
-            { x: '2010', y: 20 },
-            { x: '2011', y: 30 },
-            { x: '2012', y: 40 },
-            { x: '2013', y: 20 },
-            { x: '2014', y: 5 }
-          ]}
+          data={this.state.markers}
 
         />
 
-         <h2>Property</h2>
+         <h2>Property </h2>
+         <BarChart
+          axisLabels={{x: '', y: 'My y Axis'}}
+          axes
+         
+          colorBars
+          height={250}
+          width={650}
+          data={this.state.markers}
+/>
+          <h2>Property</h2>
+          <BarChart
+           axisLabels={{x: '', y: 'My y Axis'}}
+           axes
+          
+           colorBars
+           height={250}
+           width={650}
+           data={this.state.markers}
+        />
+
           
       </div>
         )

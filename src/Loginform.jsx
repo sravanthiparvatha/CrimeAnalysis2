@@ -28,7 +28,7 @@ class Loginform extends React.Component {
 		 var password = document.getElementById('password').value;
 
 		 request
-				.post("http://10.10.200.14:9000/users/login")
+				.post("http://10.10.200.14:9000/login")
 				.send({ email: email, password: password })
 			//	.then(result1=>result1.json())
     .then(function(result1){
@@ -42,9 +42,10 @@ class Loginform extends React.Component {
 		console.log(role);
 		localStorage.setItem("accesstoken",result1.access_token);
 		localStorage.setItem("role",result1.role);
+		window.location.href="/SearchCrime";
        
 		
-		window.location.href="/SearchCrime";      
+     
     })
     .catch(function(error){
 		window.alert("please enter correct details");
@@ -113,8 +114,7 @@ hhh
 												 <br></br>
 											<label className="anim">
 											
-										<input type = "checkbox"/>&emsp;
-										Remember me?
+							
 											   
 											</label>  &emsp; &emsp; 
 											

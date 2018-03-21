@@ -1,5 +1,5 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
+import { Link,history } from 'react-router-dom';
 import UserProfile from './UserProfile';
 import Header from './Header';
 class Loginheader extends React.Component{
@@ -13,13 +13,15 @@ class Loginheader extends React.Component{
   logout()
   {
     console.log(" in logut")
-    localStorage.setItem("accesstoken",0);
+    localStorage.removeItem("accesstoken");
+//    Browsehistory.pushState('/');
+//history.push("/")
   }
   
   render()
    {
     var accesstoken;
-    var role= "admin";//localStorage.getItem("role");
+    var role=localStorage.getItem("role");
     // let value=0;
     accesstoken = localStorage.getItem("accesstoken");
        if(role=="user")

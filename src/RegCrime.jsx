@@ -20,7 +20,7 @@ let coords = {
 
  let type2="";
 const options = [
-    'Assault', 'Murder', 'Kidnapping','Robbery', ' Sexual Assault',' Sexual abuse', 'Burglary', ' Property Crime','Theft', ' Theft of Vehicle', 'Drugs','Accident'
+    'Assault', 'Murder', 'Kidnapping','Robbery', ' SexualAssault',' SexualAbuse', 'Burglary', ' Property','Theft', ' TheftofVehicle', 'Drugs','Accident'
 
     
   ] 
@@ -48,6 +48,7 @@ class RegCrime extends React.Component {
            lat:"",
            lng:"",
            country:"",
+           desc:"",
         };
            
        this.morning=this.morning.bind(this);
@@ -91,13 +92,14 @@ time+="evening ";
 if(this.state.late)
 time+="late ";
 console.log('country   '+this.state.country);
+console.log(type2)
 let dd=this.state.year+'-'+this.state.mon+'-'+this.state.day;
 console.log('date modified  '+dd);
        
 
             request.post("http://10.10.200.14:9000/crime")
                 .send({ day: dd,time:time,  type: type2, gender: this.state.gender,  gender1: this.state.gender1,
-                    address: this.state.address,  lat: this.state.lat,  lng: this.state.lng,
+                    address: this.state.address, desc:this.state.desc , lat: this.state.lat,  lng: this.state.lng,
                     country: 'India'})
                 .then(
                 (response) => {
@@ -227,6 +229,12 @@ console.log('date modified  '+dd);
         });
        
     }
+    handleDescChange(event) {
+        this.setState({
+            desc: event.target.value,
+        });
+       
+    }
 
     handleCityChange(event) {
         this.setState({
@@ -287,7 +295,7 @@ console.log('date modified  '+dd);
  render()
      {
          return(
-             
+             <div className="">
             <div id="sample" className="main-agileinfo slider ">
 				<div className="container">
 					
@@ -418,7 +426,12 @@ console.log('date modified  '+dd);
              <br/>
              <br/>
              
-              
+            ADDRESS OF CRIME LOCATION <br /><br /><br />     
+              <textarea name="desc" id="desc" rows="4" cols="30" onChange={this.handleDescChange}></textarea>     
+                
+             <br/>
+             <br/>
+             
               
               LATITUDE     
               <input type="text" name="latitude"  id= "latitude" value="" onChange={this.handleLatitudeChange} />     
@@ -481,6 +494,8 @@ console.log('date modified  '+dd);
 					
 				</div>
 			</div>
+            </div>
+ 
  
             
          );
