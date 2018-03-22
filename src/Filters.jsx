@@ -5,6 +5,7 @@ import Googlemap from './Googlemap';
 import Cluster from './Cluster';
 //import React from 'react';
 import PropTypes from 'prop-types';
+import ListCrimes from './ListCrimes';
 import { Map, Marker, Popup, TileLayer, Polyline } from 'react-leaflet';
 
 //import {getCheckboxValue} from 'react-onchange-value';
@@ -51,7 +52,7 @@ class Filters extends React.Component {
         this.pastmonth = this.pastmonth.bind(this);
         this.past6months = this.past6months.bind(this);
         this.past3months = this.past3months.bind(this);
-        /* 
+        /*
          this.sun=this.sun.bind(this);
          this.mon=this.mon.bind(this);
          this.tue=this.tue.bind(this);
@@ -279,8 +280,8 @@ class Filters extends React.Component {
     console.log('end of sat');
 
     }
-    
-    
+
+
 */
     morning(event) {
         console.log('in morning change3424');
@@ -561,15 +562,15 @@ class Filters extends React.Component {
             type20 += "Accident ";
         console.log('time ' + time + 'type  ' + type20);
  //       request
-         
-                
+
+
 
 
            /*     const url = [
                     // Length issue
                     'http://10.10.200.14:9000', '/getParticularDetails'
                 ].join("")
-        
+
               request
               .post(url)
             	.send({ crime1 :"Burglary", time: "Morning" })
@@ -583,18 +584,18 @@ class Filters extends React.Component {
         */ var form = JSON.stringify({ crime1 :type20, time: time });
         time="";
         type20="";
-                   fetch ( "http://10.10.200.14:9000/getParticularDetails" , 
+                   fetch ( "http://10.10.200.14:9000/getParticularDetails" ,
                     {
-                        method: "POST",     
+                        method: "POST",
                         headers: {
                             "Content-Type": "application/json",
                             "Accept"    :   "application,json",
-                     
-                          },       
-                        body: form, 
-                }) .then(function(res){ 
+
+                          },
+                        body: form,
+                }) .then(function(res){
                     return(res.json());
-                   }).then(result => 
+                   }).then(result =>
                        //console.log(result);
                       this.setState({ markers : result })
                       // console.log(this.state.markers[0].lat);
@@ -602,92 +603,69 @@ class Filters extends React.Component {
                    .catch(function(error){
                        console.log(error);
                    });
-                //   this.setState({ markers:[{ lat:28.7041,lng: 77.1025,d: "thid is first poiny"},{ lat: 17.4118166,lng: 78.3967619,d: "2nd pouint"}] }); 
-            
+                //   this.setState({ markers:[{ lat:28.7041,lng: 77.1025,d: "thid is first poiny"},{ lat: 17.4118166,lng: 78.3967619,d: "2nd pouint"}] });
 
-              
-         
+
+
+
         console.log('Inside submit end');
 
     }
 
     render() {
-        return (<div>
-            <div className="fright" >
-            <br/>
-            <br/><br/><br/>
-              <Googlemap markers={this.state.markers} />
-              <br/><br/>  <br/><br/>  <br/><br/>CLUSTERED VIEW
-              <Cluster markers={this.state.markers} />
-
-            </div>
-            <div className="fleft">      <br /><br /><br />     <tr>  <br />  <br />
-                <td> DATE RANGE</td>
-                <br /><br />
-                <td>
-                    <br /><br />
-
-                    <td>
-                        <input type="radio" name="Gender" id="Gender" onChange={this.handleVictimChange} value=" Past 3 days" /> Past 3 days<br />
-                        <input type="radio" name="Gender" id="Gender" onChange={this.handleVictimChange} value="Past week" /> Past week<br />
-                        <input type="radio" name="Gender" id="Gender" onChange={this.handleVictimChange} value="Other" /> Past month<br />
-                        <input type="radio" name="Gender" id="Gender" onChange={this.handleVictimChange} value=" Past 3 days" />  Past 6 months<br />
-                        <input type="radio" name="Gender" id="Gender" onChange={this.handleVictimChange} value="Past week" /> Past 3 months<br />
-                        <input type="radio" name="Gender" id="Gender" onChange={this.handleVictimChange} value="Other" />Custom range<br />
-                    </td>
-
-
-
-                    <input type="date" data-date="" data-date-format="DD MMMM YYYY" />
-                </td>
-            </tr>
-
-                <tr>  <br />  <br />
-                    <td> TIME RANGE</td>
-                    <br /><br />
-                    <td>
-                        <br /><br />
-                        <input type="checkbox" name="timeRange" id="timeRange" onChange={this.morning} value="Morning" /> Morning<br />
-                        <input type="checkbox" name="timeRange" id="timeRange" onChange={this.afternoon} value="Morning" /> afternoon<br />
-                        <input type="checkbox" name="timeRange" id="timeRange" onChange={this.evening} value="Evening" /> Evening<br />
-                        <input type="checkbox" name="timeRange" id="timeRange" onChange={this.late} value="LateNight" /> LateNight<br />
-                    </td>
-                </tr>
-
-                <br />  <br />
-                <tr>  <br />  <br />
-                    <td> CRIME TYPE</td>
-                    <br /><br />
-                    <td>
-                        <br /><br />
-                        <label>Violent</label><br />
-                        <input type="checkbox" name="crimeType" id="crimeType1" onChange={this.ass} value="Assault" />Assault <br />
-                        <input type="checkbox" name="crimeType" id="crimeType1" onChange={this.mur} value="Murder" /> Murder<br />
-                        <input type="checkbox" name="crimeType" id="crimeType1" onChange={this.kid} value="Kidnapping" /> Kidnapping<br />
-                        <input type="checkbox" name="crimeType" id="crimeType1" onChange={this.rob} value="Robbery" /> Robbery<br />
-                        <input type="checkbox" name="crimeType" id="crimeType1" onChange={this.sass} value=" Sexual Assault" />  Sexual Assault<br />
-                        <input type="checkbox" name="crimeType" id="crimeType1" onChange={this.sab} value="Sexual abuse" /> Sexual abuse<br />
-                        <br /><br />
-                        <label>Property</label><br />
-                        <input type="checkbox" name="crimeType" id="crimeType1" onChange={this.bur} value="Burglary" /> Burglary<br />
-                        <input type="checkbox" name="crimeType" id="crimeType1" onChange={this.property} value=" Property Crime" />  Property Crime<br />
-                        <input type="checkbox" name="crimeType" id="crimeType1" onChange={this.theft} value="Theft" /> Theft<br />
-                        <input type="checkbox" name="crimeType" id="crimeType1" onChange={this.theftv} value=" Theft of Vehicle" />  Theft of Vehicle<br />
-                        <br /><br />
-                        <label>Quality of Life</label><br />
-                        <input type="checkbox" name="crimeType" id="crimeType1" onChange={this.drugs} value="Drugs" /> Drugs<br />
-                        <input type="checkbox" name="crimeType" id="crimeType1" onChange={this.accident} value="Accident" /> Accident<br />
-                    </td>
-                </tr>
-
-                <div>  <button onClick={this.handleSubmit}>Submit</button></div>
-            </div>
-
-            <div className="fright1">
+        return (<div className="search-crime-container">
+            <div className="filters">
+              <div className="date-range">
+                <h3>Date Range</h3>
+                <div><input type="radio" name="Gender" id="Gender" onChange={this.handleVictimChange} value=" Past 3 days" /> Past 3 days</div>
+                <div><input type="radio" name="Gender" id="Gender" onChange={this.handleVictimChange} value="Past week" /> Past week</div>
+                <div><input type="radio" name="Gender" id="Gender" onChange={this.handleVictimChange} value="Other" /> Past month</div>
+                <div><input type="radio" name="Gender" id="Gender" onChange={this.handleVictimChange} value=" Past 3 days" />  Past 6 months</div>
+                <div><input type="radio" name="Gender" id="Gender" onChange={this.handleVictimChange} value="Past week" /> Past 3 months</div>
+                <div><input type="radio" name="Gender" id="Gender" onChange={this.handleVictimChange} value="Other" /> Custom range</div>
+                <div><input type="date" data-date="" data-date-format="DD MMMM YYYY" /></div>
+              </div>
+              <div className="time-range">
+                <h3>TIME RANGE</h3>
+                <div><input type="checkbox" name="timeRange" id="timeRange" onChange={this.morning} value="Morning" /> Morning</div>
+                <div><input type="checkbox" name="timeRange" id="timeRange" onChange={this.afternoon} value="Morning" /> afternoon</div>
+                <div><input type="checkbox" name="timeRange" id="timeRange" onChange={this.evening} value="Evening" /> Evening</div>
+                <div><input type="checkbox" name="timeRange" id="timeRange" onChange={this.late} value="LateNight" /> LateNight</div>
+              </div>
+              <div className="crime-type">
+                <h3>Crime Type</h3>
+                <div className="type-violent">
+                  <label>Violent</label>
+                  <div><input type="checkbox" name="crimeType" id="crimeType1" onChange={this.ass} value="Assault" />Assault</div>
+                  <div><input type="checkbox" name="crimeType" id="crimeType1" onChange={this.mur} value="Murder" /> Murder</div>
+                  <div><input type="checkbox" name="crimeType" id="crimeType1" onChange={this.kid} value="Kidnapping" /> Kidnapping</div>
+                  <div><input type="checkbox" name="crimeType" id="crimeType1" onChange={this.rob} value="Robbery" /> Robbery</div>
+                  <div><input type="checkbox" name="crimeType" id="crimeType1" onChange={this.sass} value=" Sexual Assault" />  Sexual Assault</div>
+                  <div><input type="checkbox" name="crimeType" id="crimeType1" onChange={this.sab} value="Sexual abuse" /> Sexual abuse</div>
+                </div>
+                <div className="type-property">
+                  <label>Property</label>
+                  <div><input type="checkbox" name="crimeType" id="crimeType1" onChange={this.bur} value="Burglary" /> Burglary</div>
+                  <div><input type="checkbox" name="crimeType" id="crimeType1" onChange={this.property} value=" Property Crime" />  Property Crime</div>
+                  <div><input type="checkbox" name="crimeType" id="crimeType1" onChange={this.theft} value="Theft" /> Theft</div>
+                  <div><input type="checkbox" name="crimeType" id="crimeType1" onChange={this.theftv} value=" Theft of Vehicle" />  Theft of Vehicle</div>
+                </div>
+                <div className="type-quality-of-life">
+                  <label>Quality of Life</label>
+                  <div><input type="checkbox" name="crimeType" id="crimeType1" onChange={this.drugs} value="Drugs" /> Drugs</div>
+                  <div><input type="checkbox" name="crimeType" id="crimeType1" onChange={this.accident} value="Accident" /> Accident</div>
+                </div>
+                <div className="filter-submit"><button onClick={this.handleSubmit}>Submit</button></div>
             </div>
         </div>
+        <div className="maps">
+          <Googlemap markers={this.state.markers} />
+          <h2>Cluster View</h2>
+          <Cluster markers={this.state.markers} />
+        </div>
+        <ListCrimes/>
+      </div>
         );
     }
 }
 export default Filters;
-

@@ -1,6 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-class AdminHeader extends React.Component {
+class UserHeader extends React.Component {
 
     render() {
         return(<div id="main-header-container"><nav className="navbar navbar-default navbar-fixed-top">
@@ -19,13 +19,13 @@ class AdminHeader extends React.Component {
           <div className="col-sm-12" id="main-header">
             <div class="logo">
               <Link to='/' >
-                <img src="logo.png" />
-                <div>Crime Analysis</div>
+              <img src="logo.png" />
+              <div>Crime Analysis</div>
               </Link>
             </div>
             <ul className="nav navbar-nav navbar-right main-navigation">
-              <li><Link to='/MapContainer' ><i className="glyphicon glyphicon-plus"></i> Add Crime</Link></li>
               <li><Link to='/User' ><i className="glyphicon glyphicon-user"></i>My Profile</Link></li>
+              <li><Link to='/' > <button onClick={this.logout} >Subscribe</button></Link></li>
               <li><Link to='/' > <button className="logout" onClick={this.logout} >Logout</button></Link></li>
             </ul>
           </div>
@@ -40,4 +40,4 @@ class AdminHeader extends React.Component {
 
         )}
 }
-export default AdminHeader;
+export default UserHeader;

@@ -9,20 +9,8 @@ class Footer extends Component {
   render() {
     return(
 <nav id="footer">
-        <div className="container">
-            <div className="pull-left fnav">
-                <p>ALL RIGHTS RESERVED. COPYRIGHT © 2018. Designed by Team-CrimeAnalysis</p>
-            </div>
-            <div className="pull-right fnav">
-                <ul className="footer-social">
-                    <li><a href="#"><i className="fa fa-facebook"></i></a></li>
-                    <li><a href="#"><i className="fa fa-dribbble"></i></a></li>
-                    <li><a href="#"><i className="fa fa-google-plus"></i></a></li>
-                    <li><a href="#"><i className="fa fa-twitter"></i></a></li>
-                </ul>
-            </div>
-        </div>
-    </nav>
+    <p>All Rights Reserved. Copyright © 2018. Designed by Team-CrimeAnalysis</p>
+</nav>
     );
  }
 }

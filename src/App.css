@@ -1,4 +1,74 @@
 
-html,body,h1,h2,h3,h4,h5,h6 {
-    font-family: "Lobster", Sans-serif;
+body,h1,h2,h3,h4,h5,h6,p {
+    font-family: "Nunito", Sans-serif;
+}
+.above-the-fold{
+  padding:50px 0;
+}
+.above-the-fold h1{
+  text-transform: none;
+}
+.above-the-fold .intro{
+  display: flex;
+  justify-content: space-around;
+  max-width:700px;
+  align-items: center;
+  margin:0 auto;
+}
+.above-the-fold img{
+  max-width:250px;
+}
+.above-the-fold .intro .intro-text{
+  padding-left:60px;
+}
+.above-the-fold .intro p{
+  margin-bottom:20px;
+}
+.above-the-fold a{
+  background-color:#cb4a32;
+  color:white;
+  padding:10px 15px;
+  text-align: center;
+}
+.above-the-fold a i{
+  padding-right:10px;
+}
+.above-the-fold a:hover{
+  background-color:#a33622;
+  text-decoration:none;
+}
+#data-graphs{
+  padding:50px;
+  background-color:white;
+  max-width:1020px;
+  margin:0 auto;
+  border-top-left-radius: 30px;
+  border-top-right-radius: 30px;
+  margin-bottom:50px;
+}
+#data-graphs > div{
+  border-bottom:1px solid #ccc;
+  margin-bottom:40px;
+}
+#data-graphs > div:last-child{
+  border-bottom:0;
+  margin-bottom:0;
+}
+#data-graphs div h2{
+  text-align: center;
+  color:#a33622;
+  font-size:30px;
+  font-weight: 200;
+}
+#data-graphs div h2 + div{
+  max-width:650px;
+  margin:0 auto;
+}
+#footer{
+  border-top:1px solid #ccc;
+  text-align: center;
+  padding:15px;
+  background-color:#a33622;
+  color:white;
+  clear:both;
 }

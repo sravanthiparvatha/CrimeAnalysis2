@@ -12,29 +12,21 @@ import Explore from './Explore';
 import Map from './Map';
 import Footer from './Footer';
 import Chart from './Chart';
+import Loginheader from './Loginheader';
 
 
 class Home extends Component {
- 
+
   render() {
     return (
-    
+
       <div>
-        <Header>
-          </Header>
-        <section>		
-          <div>
-         
-            <SlideImages style={{ height: 50}}/>
-              <br/><br/><br/>
-                <Explore/>
-                    <br/>    <br/>    <br/>    <br/>    <br/>    <br/>    <br/>    <br/>    <br/>    <br/>    <br/>    <br/>
-                    <div id="mapid"></div>
-                    <Chart/>
-              <AboutUs/>
-              <Footer/>
-            </div>  
-        </section>
+        <Loginheader/>
+        <div id="main-content">
+          <Explore/>
+          <Chart/>
+          <Footer/>
+        </div>
       </div>
     );
   }

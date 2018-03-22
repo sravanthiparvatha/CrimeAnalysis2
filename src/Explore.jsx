@@ -4,31 +4,23 @@ import { Link } from 'react-router-dom';
 class Explore extends React.Component{
 render(){
 return(<section className="section-padding hero">
-      <div className="text">
-        <div className="vertical-center">
-          <div className="container">
-            <div className="row">
-              <div className="col-sm-12 col-md-10 col-md-offset-1">
-              <div id="w">  <h1>Welcome to  CrimeAnalysis</h1></div>
-                <h2>Search over 1000 departments by name, region, or zip code</h2>
-                <div className="searchbar">
-              <div id="i" className="container">
-              <div className="row">
-            
-             <button > <Link to='/SearchCrime'>Explore the Map </Link></button><br/>
-                   
-                       
-                    
-                      </div>
-           </div>
-                </div>
-              </div>
-            </div>
-          </div>
+<div className="container">
+  <div className="row">
+    <div className="col-sm-12 above-the-fold">
+      <h1>Welcome to  Crime Analysis</h1>
+      <div className="intro">
+        <div className="intro-image">
+          <img src="hyderabad.png" alt="hyderabad"/>
+        </div>
+        <div className="intro-text">
+          <p> Crime is one of the most predominant and alarming aspects in our society and its prevention is a vital task. Crime analysis is a systematic way of detecting and investigating patterns and trends in crime. </p>
+          <p>Search over 1000 departments by name, region, or zip code</p>
+          <Link to='/SearchCrime'><i class="glyphicon glyphicon-map-marker"></i>Explore the Map </Link>
         </div>
       </div>
-
-     
+    </div>
+  </div>
+</div>
     </section>);
     }
 }

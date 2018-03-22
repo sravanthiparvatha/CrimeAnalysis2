@@ -1,28 +1,69 @@
-
-.header {
-    height:40px;
-    position:fixed;
-   
+#main-header-container{
+  overflow: hidden;
 }
-
-#header-sroll {
-    position:fixed;
-    height: 50px;
-    background:rgb(240, 72, 72);
-    left:0;
-    top:0;
-    float:left;
-    width:100%;
-    -ms-transition:     all 0.3s ease-out;
-    -moz-transition:    all 0.3s ease-out;
-    -webkit-transition: all 0.3s ease-out;
-    -o-transition:      all 0.3s ease-out;
-    transition:         all 0.3s ease-out;
+#main-header{
+  background-color:white;
+  padding:10px 20px;
+  display:flex !important;
+  justify-content: space-between;
+  align-items: center;
 }
-
-.active {
-    color:rgb(255, 255, 255);
+#main-header .logo, #main-header .main-navigation{
+  width:50% !important;
 }
-.white {
-    color:rgb(255, 255, 255);
+#main-header .logo a{
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  text-decoration: none;
+}
+#main-header .logo a:hover{
+  text-decoration: none;
+}
+#main-header .logo div{
+  padding-left:20px;
+  font-size:30px;
+  letter-spacing: 0;
+  color:#a33622;
+  font-weight: bold;
+  font-family: "Nunito", sans-serif;
+}
+#main-header .main-navigation{
+  display: flex;
+  justify-content: flex-end;
+  font-family: "Nunito", sans-serif;
+}
+#main-header .main-navigation a{
+  letter-spacing: 0;
+  line-height: 30px;
+  font-size:16px;
+  text-transform: capitalize;
+  color:black;
+  padding-right:7px;
+}
+#main-header .main-navigation a:hover, #main-header .main-navigation a:focus{
+  color:#a33622;
+}
+#main-header .main-navigation a i{
+  padding-right:5px;
+}
+.logo{
+  height: auto !important;
+  font-size: 10px !important;
+}
+#main-content{
+  margin-top:60px;
+}
+.navbar{
+  background-color:white !important;
+}
+.main-navigation button{
+  background-color:#cb4a32;
+  color:white;
+  border:0;
+  line-height: 30px;
+  padding:0 10px;
+}
+.main-navigation button:hover{
+  background-color:#a33622;
 }

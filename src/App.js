@@ -23,13 +23,12 @@ import EditUserProfile from './EditUserProfile';
 import UpdatePassword from './UpdatePassword';
 import ListCrimes from './ListCrimes';
 import Cluster from './Cluster';
-import ForgotPassword1 from './ForgotPassword1';
 
 
 
 
 class App extends Component {
- 
+
   render() {
     return (
      <div>
@@ -41,20 +40,14 @@ class App extends Component {
       <Route path="/User" exact  component={UserProfile} />
       <Route path="/LoginHeader" exact  component={Loginheader} />
       <Route path="/ResetPassword" exact  component={ForgotPassword} />
-      <Route path="/G" exact  component={Goo} />
-      <Route path="/A" exact  component={AdminHeader} />
       <Route path="/editprofile" exact  component={EditUserProfile} />
       <Route path="/updatepassword" exact  component={UpdatePassword} />
       <Route path="/list" exact  component={ListCrimes} />
       <Route path="/cluster" exact  component={Cluster} />
       <Route path="/forgotpassword" exact component={ForgotPassword}/>
-            <Route path="/forgotpassword/:token" exact component={ForgotPassword1}/>
     </div>
     );
   }
 }
 
 export default App;
-
-
-

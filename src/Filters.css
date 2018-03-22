@@ -1,25 +1,112 @@
-.wrap {
-    width: 100%;
-    overflow:auo;
-    }
-    
-    .fleft {
-        float:left; 
-        width: 10%;
- background-color: rgb(46, 145, 179);
-        height: 4000px;
-    }
-    
-   
-    .fright1 {
-        float: right;
-            background:rgb(237, 242, 245);
-            height: 4000px;
-            width: 25%;
-        } 
-        .fright {
-            float: right;
-                background:rgb(219, 104, 69);
-                height: 4000px;
-                width: 65%;
-            }
+.search-crime-container{
+  margin-top:60px;
+  display: flex;
+  justify-content: space-between;
+}
+.search-crime-container > div{
+  padding:20px;
+}
+.filters{
+  width:15%;
+  @media only screen and (max-width:1280px){
+    width:20%;
+  }
+}
+.crime-list{
+  width:40%;
+  @media only screen and (max-width:1280px){
+    width:35%;
+  }
+}
+.maps{
+  border-left:1px solid #ccc;
+  border-right:1px solid #ccc;
+  width:45%;
+}
+.maps .leaflet-container{
+  width:95%;
+}
+
+.filters h3{
+  color:#a33622;
+  margin-bottom:10px;
+  font-weight: bold;
+  font-size:18px;
+}
+
+.filters label{
+  color:black;
+  font-weight: bold;
+  font-size:16px;
+  margin:10px 0;
+}
+
+.filters > div{
+  padding-bottom:20px;
+  margin-bottom:20px;
+  border-bottom:1px solid #ccc;
+}
+
+.filters > div:last-child{
+  border-bottom:0;
+  padding-bottom:0;
+}
+
+.filters h3 ~ div{
+  font-size:14px;
+  margin-bottom:3px;
+}
+.filters input[type="date"]{
+  padding-left:10px;
+  width:100%;
+}
+.filters button{
+  background-color: #cb4a32;
+  color: white;
+  padding: 7px 15px;
+  text-align: center;
+  border:0;
+  width:100%;
+  margin-top:20px;
+}
+.filters button:hover{
+  background-color:#a33622;
+}
+
+.maps h2{
+  margin-bottom:15px;
+  margin-top:30px;
+  font-size:25px;
+  font-weight:200;
+  color:#cb4a32;
+  text-align: center;
+}
+.crime-list{
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  align-content: flex-start;
+}
+.single-crime{
+  background-color:white;
+  padding:10px;
+  border-radius:4px;
+  border:1px dashed #cb4a32;
+  width:48%;
+  margin-bottom:20px;
+  max-height: 200px;
+}
+.single-crime h3{
+    color:#cb4a32;
+    font-weight: bold;
+}
+.single-crime p{
+  font-size:14px;
+  margin-top:5px;
+}
+.single-crime .crime-meta{
+  border-top:1px solid #ccc;
+  font-size:14px;
+  margin-top:10px;
+  padding-top:10px;
+}

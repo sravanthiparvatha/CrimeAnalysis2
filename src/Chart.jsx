@@ -1,7 +1,7 @@
 import React from 'react';
 import {BarChart} from 'react-easy-chart';
 export default class Chart extends React.Component{
- 
+
   constructor(props) {
     super(props);
     this.state= {
@@ -15,7 +15,7 @@ export default class Chart extends React.Component{
       markers2:[]
       }
      } componentWillMount() {
-    
+
     console.log('in will mount');
   /*(this.setState({ markers: [
       { x: '2010', y: 20 },
@@ -40,46 +40,44 @@ export default class Chart extends React.Component{
        // console.log(this.state.markers);
        // console.log('after reading');
       });
-      
+
   }
           render(){
-      
-        return(<div>
 
-         <h2>Violent Crimes</h2>
+        return(<div id="data-graphs">
+        <div>
+          <h2>Violent Crimes</h2>
           <BarChart
           axisLabels={{x: '', y: 'My y Axis'}}
           axes
-         
           colorBars
           height={250}
           width={650}
           data={this.state.markers}
-
-        />
-
+          />
+        </div>
+        <div>
          <h2>Property </h2>
          <BarChart
           axisLabels={{x: '', y: 'My y Axis'}}
           axes
-         
           colorBars
           height={250}
           width={650}
           data={this.state.markers}
-/>
-          <h2>Property</h2>
+          />
+        </div>
+        <div>
+          <h2>Quality of Life</h2>
           <BarChart
            axisLabels={{x: '', y: 'My y Axis'}}
            axes
-          
            colorBars
            height={250}
            width={650}
            data={this.state.markers}
-        />
-
-          
+           />
+        </div>
       </div>
         )
     }
