@@ -2,6 +2,17 @@ import React from 'react';
 import request from 'superagent';
 import './RegistrationForm.css';
 import { Link } from 'react-router-dom';
+import Loginheader from './Loginheader';
+import Footer from './Footer';
+import 'react-dropdown/style.css'
+import Select from 'react-select-plus';
+import {Gmaps, Marker, InfoWindow, Circle} from 'react-gmaps';
+
+let coords = {
+    lat: 17.3850,
+    lng:78.4867
+};
+const params = {v: '3.exp', key: 'AIzaSyC9tvO2YPEmjQcNKGWyrV37vYRU7hdKlbM'};
 class Registerform extends React.Component{
    
         constructor(props) {
@@ -12,13 +23,49 @@ class Registerform extends React.Component{
                 email: "",
                 password: "",
                 confirmPassword: "",
+                lat:"",
+                lng:"",
+                alerts:""
             };
             this.handleSubmit = this.handleSubmit.bind(this);
             this.handleNameChange = this.handleNameChange.bind(this);
             this.handleEmailChange = this.handleEmailChange.bind(this);
             this.handlePasswordChange = this.handlePasswordChange.bind(this);
             this.handleConfirmPasswordChange = this.handleConfirmPasswordChange.bind(this);
+            this.onDragEnd=this.onDragEnd.bind(this);
+            this.morning=this.morning.bind(this);
         }
+        onMapCreated(map) {
+            map.setOptions({
+              disableDefaultUI: true
+            });
+          }
+    
+          onDragEnd(e) {
+            console.log('onDragEnd'+' hii '+e.latLng.lat(), e);
+            //coords=e.latLng;
+            coords.lat=e.latLng.lat();
+            coords.lng=e.latLng.lng();
+            this.setState({
+                lat: coords.lat,
+                lng:coords.lng,
+            })
+           // console.log('after cords change '+coords.lat+' longii'+coords.lng);
+           //document.getElementById('latitude').value = e.latLng.lat()
+             //        document.getElementById('longitude').value =  e.latLng.lng()
+    
+          }
+    
+          onCloseClick() {
+    
+            console.log('onCloseClick');
+          }
+    
+          onClick(e) {
+    
+            console.log('onClick '+coords.lat +coords.lng+'  hello  '+ e.latlng, e.latlng);
+        coords=e.latLng;
+          }
     
         handleSubmit(event) {
     console.log('handle submit start');
@@ -30,19 +77,20 @@ class Registerform extends React.Component{
             var email = document.getElementById('email').value;
             var password = document.getElementById('password').value;
             var confirmPassword = document.getElementById('confirmPassword').value;
-    
+    console.log('name'+name+'\nalerts '+this.state.alerts+'\nlat lng'+this.state.lat+' '+this.state.lng)
             if (password === confirmPassword) {
     
                 request
                     .post("http://10.10.200.14:9000/createUser")
-                    .send({ name: name, email: email, password: password  })
+                    .send({ name: name, email: email, password: password,alerts:this.state.alerts,lat:this.state.lat,lng:this.state.lng  })
                     .then(
                     (response) => {
                         // response.body will be the returned data from your play app, which is an array of objects
                         // I kept the data as object with "place" as the key, and [lat,longs] as value.
                         // following code converts array of objects into the format which my component is accepting.
                         console.log("response is ok");
-                        window.alert("Account created sucessfully");
+                        window.alert("Account created sucessfully pleas Login to continue");
+                        window.location.href="/login";
 				
                     });
             }
@@ -101,6 +149,20 @@ class Registerform extends React.Component{
             });
     
         }
+        morning(event)
+        {
+            console.log('in morning change3424');
+            if(event.target.checked)
+        this.setState({
+            alerts : "true"
+        });
+        else
+        this.setState({
+            alerts : "false"
+        });
+        console.log('end of morning');
+    
+        }
     
     
     
@@ -108,6 +170,9 @@ class Registerform extends React.Component{
         render() {
             return (
                 <div id="register" className="main-agileinfo slider ">
+                <Loginheader/>
+                <br/>
+                <br/>
                     <div className="items-group">
                         <div className="item agileits-w3layouts">
                             <div className="block text main-agileits">
@@ -172,13 +237,34 @@ class Registerform extends React.Component{
                                                     placeholder="Re-enter password"
                                                     onChange={this.handleConfirmPasswordChange}
                                                     value={this.state.confirmPassword} />
-                                                    
-                                                <label className="anim">
-                                                
-                                            <input type = "checkbox"/>&emsp;
-                                            Remember me?
+                                                    <br/>
+                                                    <br/>
+                                               
+                                                    <Gmaps
+                  width={'700px'}
+                  height={'600px'}
+                  lat={coords.lat}
+                  lng={coords.lng}
+                  zoom={12}
+                  loadingMessage={'Be happy'}
+                  params={params}
+                  onMapCreated={this.onMapCreated}
+                  onClick={this.onClick}>
+                  <Marker
+                  lat={coords.lat}
+                  lng={coords.lng}
+                  draggable={true}
+                  onDragEnd={this.onDragEnd} />
+                  <InfoWindow
+                  lat={coords.lat}
+                  lng={coords.lng}
+                  content={'Hello, Move me to crime location :)'}
+                  onCloseClick={this.onCloseClick} />
+                </Gmaps><br/><br/>
+                <div><input type="checkbox" name="timeRange" id="timeRange" onChange={this.morning} value="Morning" />   Alerts ?</div>&emsp;
+                                          
                                                    
-                                                </label>  &emsp; &emsp; 
+                                              &emsp; &emsp; 
                                                 
                                                 <br></br>
                                                 &emsp;&emsp; &emsp;&emsp; &emsp;&emsp; &emsp;&emsp; &emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;
@@ -194,9 +280,12 @@ class Registerform extends React.Component{
                                         </div>
                                     </div>
                                 </div>
+                             
+
                             </div>
                         </div>
                     </div>
+                    <Footer/>
                 </div>
     
             );

@@ -23,11 +23,11 @@ class Loginheader extends React.Component{
   render()
    {
     var accesstoken;
-    var role="admin"; //localStorage.getItem("role");
+    var role=localStorage.getItem("role");
     accesstoken = localStorage.getItem("accesstoken");
-       if(role=="user")
+       if(role=="User")
        return(<UserHeader/>);
-      if(role=="admin")
+      if(role=="Admin")
       return(<AdminHeader/>);
   else
   return(<Header/>);

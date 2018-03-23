@@ -23,6 +23,7 @@ import EditUserProfile from './EditUserProfile';
 import UpdatePassword from './UpdatePassword';
 import ListCrimes from './ListCrimes';
 import Cluster from './Cluster';
+import ListFilter from './ListFilter';
 
 
 
@@ -42,7 +43,7 @@ class App extends Component {
       <Route path="/ResetPassword" exact  component={ForgotPassword} />
       <Route path="/editprofile" exact  component={EditUserProfile} />
       <Route path="/updatepassword" exact  component={UpdatePassword} />
-      <Route path="/list" exact  component={ListCrimes} />
+      <Route path="/list" exact  component={ListFilter} />
       <Route path="/cluster" exact  component={Cluster} />
       <Route path="/forgotpassword" exact component={ForgotPassword}/>
     </div>

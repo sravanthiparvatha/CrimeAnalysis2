@@ -11,7 +11,7 @@ import { Map, Marker, Popup, TileLayer, Polyline } from 'react-leaflet';
 //import {getCheckboxValue} from 'react-onchange-value';
 let time,date="";
 const moment = require('moment');
-class Filters extends React.Component {
+class ListFilter extends React.Component {
 
     constructor(props) {
         super(props);
@@ -594,14 +594,9 @@ date=event.target.value;
                 <div className="filter-submit"><button onClick={this.handleSubmit}>Submit</button></div>
             </div>
         </div>
-        <div className="maps">
-          <Googlemap markers={this.state.markers} />
-          <h2>Cluster View</h2>
-          <Cluster markers={this.state.markers} />
-        </div>
-        <ListCrimes markers={this.state.markers}/>
+       <ListCrimes markers={this.state.markers}/>
       </div>
         );
     }
 }
-export default Filters;
+export default ListFilter;

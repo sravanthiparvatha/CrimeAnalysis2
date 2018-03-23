@@ -3,6 +3,8 @@ import PropTypes from 'prop-types';
 import { Map, Marker, Popup, TileLayer, Polyline } from 'react-leaflet';
 import request from 'superagent';
 import MarkerClusterGroup from 'react-leaflet-markercluster';
+import Moment from 'react-moment';
+
 class Googlemap extends React.Component{
   constructor(props) {
     super(props);
@@ -57,9 +59,12 @@ return(
      {this.props.markers.map((marker,i) => (
     <Marker position={{ lat: marker.lat,lng: marker.lng}}>
       <Popup>
-        <span>
-         {marker.address}
-        </span>
+      <span>
+       Criminal Gender: {marker.gender}<br/>
+       Victim Gender: {marker.gender1}<br/>
+        Descrption:  {marker.address}<br/>
+     
+       On <Moment format="YYYY/MM/DD" date={marker.date}/></span>
       </Popup>
     </Marker>
 

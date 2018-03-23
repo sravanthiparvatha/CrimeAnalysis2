@@ -1,6 +1,6 @@
 import React from 'react';
 import {Button} from 'react-bootstrap';
-import './UpdatePassword.css';
+import './Header.css';
 import request from 'superagent'; 
 
 class UpdatePassword extends React.Component {
@@ -15,6 +15,7 @@ class UpdatePassword extends React.Component {
         this.handleOldPasswordChange=this.handleOldPasswordChange.bind(this);
         this.handleNewPasswordChange=this.handleNewPasswordChange.bind(this);
         this.handleConfirmPasswordChange=this.handleConfirmPasswordChange.bind(this);
+       // this.handlesub
     }
 
     handleChange(event) {
@@ -31,14 +32,15 @@ class UpdatePassword extends React.Component {
         var form = JSON.stringify({opassword:opassword, npassword : npassword});
 		if (npassword === cpassword) {
 
-			fetch ( "http://10.10.200.22:9000/user/changeP" , 
-           {
-            method: "POST",     
-            headers: {
-                "Content-Type": "application/json",
-                "Accept"    :   "application,json",
-                "Authorization" : 'Bearer'+ accesstoken,
-              },
+			fetch ( "http://10.10.200.14:9000/user/changeP" , 
+            {
+                method: "POST",     
+                headers: {
+                    "Content-Type": "application/json",
+                    "Accept"    :   "application,json",
+                    "Authorization" : 'Bearer'+ accesstoken,
+                    
+                  },  
               body: form,        
            
     }).then(result1=>result1.json())
@@ -52,7 +54,7 @@ class UpdatePassword extends React.Component {
    });
 }
 		else {
-			//	console.log("nope");
+		console.log("nope");
           window.alert("New password and confirm password are not matching");
 		}
 
@@ -86,7 +88,7 @@ class UpdatePassword extends React.Component {
               <input type="password"
                      id="opassword"
                      required pattern="^[A-Za-z0-9_.-@]*$"
-					required minLength="6" maxLength="10"
+					required minLength="6" maxLength="20"
 					autoFocus
                      onChange={this.handleOldPasswordChange}
 					value={this.state.opassword} required/><br />
@@ -94,7 +96,7 @@ class UpdatePassword extends React.Component {
                     <input type="password"
                      id="npassword"
                      required pattern="^[A-Za-z0-9_.-@]*$"
-					required minLength="6" maxLength="10"
+					required minLength="6" maxLength="20"
 					autoFocus
                      onChange={this.handleNewPasswordChange}
 					value={this.state.npassword} required/><br />
@@ -102,7 +104,7 @@ class UpdatePassword extends React.Component {
                     <input type="password"
                      id="cpassword"
                      required pattern="^[A-Za-z0-9_.-@]*$"
-					required minLength="6" maxLength="10"
+					required minLength="6" maxLength="20"
 					autoFocus
                      onChange={this.handleConfirmPasswordChange}
 					value={this.state.cpassword} required/><br/>

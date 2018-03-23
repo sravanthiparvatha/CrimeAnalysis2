@@ -3,6 +3,7 @@ import './LoginForm.css';
 
 import request from 'superagent';
 import { Link } from 'react-router-dom';
+import Loginheader from './Loginheader';
 
 class Loginform extends React.Component {
 	 constructor(props) {
@@ -23,7 +24,7 @@ class Loginform extends React.Component {
 
 		 this.setState({ value: event.target.value });
 		 var accesstoken;
-		 var role='user';
+		 var role;
 		 var email = document.getElementById('email').value;
 		 var password = document.getElementById('password').value;
 
@@ -34,14 +35,14 @@ class Loginform extends React.Component {
     .then(function(result1){
        
 		console.log(result1);
-       window.alert("Login successful");
-        
 		accesstoken = result1.access_token;
-		role=result1.role;
+		role=result1.body.role;
 		console.log(accesstoken);
 		console.log(role);
-		localStorage.setItem("accesstoken",result1.access_token);
-		localStorage.setItem("role",result1.role);
+		localStorage.setItem("accesstoken",result1.body.access_token);
+		localStorage.setItem("role",role);
+		console.log(localStorage.getItem("role"));
+		window.alert("Login successful");
 		window.location.href="/SearchCrime";
        
 		
@@ -73,7 +74,8 @@ hhh
 	}
 	render() {
 		return (
-			<div id="register" className="main-agileinfo slider ">
+			<div id="register" className="main-agileinfo slider "><br/>
+			<Loginheader/>
 				<div className="items-group">
 					<div className="item agileits-w3layouts">
 						<div className="block text main-agileits">

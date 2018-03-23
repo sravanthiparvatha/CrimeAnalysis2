@@ -1,85 +1,20 @@
 import React from 'react';
+import Moment from 'react-moment';
 class ListCrimes extends React.Component{
-
-
-
-
 
   render(){
   return(
   <div className="crime-list">
+    {this.props.markers.map((marker,i) => (
     <div className="single-crime">
-      <h3 class="crime-title">Crime Name</h3>
-      <p class="crime-description">Crime description must be atleast 30 words and some times should be less than that.</p>
+      <h3 class="crime-title">{marker.type}</h3>
+      <p class="crime-description"> {marker.address}</p>
       <div class="crime-meta">
-        <time>16/12/1987 at 13:34PM</time>
+        <time> On  <Moment format="YYYY/MM/DD" date={marker.date}/></time>
         <div><span>Type:</span> <span>Assault</span></div>
       </div>
-    </div>
-    <div className="single-crime">
-      <h3 class="crime-title">Crime Name</h3>
-      <p class="crime-description">Crime description must be atleast 30 words and some times should be less than that.</p>
-      <div class="crime-meta">
-        <time>16/12/1987 at 13:34PM</time>
-        <div><span>Type:</span> <span>Assault</span></div>
-      </div>
-    </div>
-    <div className="single-crime">
-      <h3 class="crime-title">Crime Name</h3>
-      <p class="crime-description">Crime description must be atleast 30 words and some times should be less than that.</p>
-      <div class="crime-meta">
-        <time>16/12/1987 at 13:34PM</time>
-        <div><span>Type:</span> <span>Assault</span></div>
-      </div>
-    </div>
-    <div className="single-crime">
-      <h3 class="crime-title">Crime Name</h3>
-      <p class="crime-description">Crime description must be atleast 30 words and some times should be less than that.</p>
-      <div class="crime-meta">
-        <time>16/12/1987 at 13:34PM</time>
-        <div><span>Type:</span> <span>Assault</span></div>
-      </div>
-    </div>
-    <div className="single-crime">
-      <h3 class="crime-title">Crime Name</h3>
-      <p class="crime-description">Crime description must be atleast 30 words and some times should be less than that.</p>
-      <div class="crime-meta">
-        <time>16/12/1987 at 13:34PM</time>
-        <div><span>Type:</span> <span>Assault</span></div>
-      </div>
-    </div>
-    <div className="single-crime">
-      <h3 class="crime-title">Crime Name</h3>
-      <p class="crime-description">Crime description must be atleast 30 words and some times should be less than that.</p>
-      <div class="crime-meta">
-        <time>16/12/1987 at 13:34PM</time>
-        <div><span>Type:</span> <span>Assault</span></div>
-      </div>
-    </div>
-    <div className="single-crime">
-      <h3 class="crime-title">Crime Name</h3>
-      <p class="crime-description">Crime description must be atleast 30 words and some times should be less than that.</p>
-      <div class="crime-meta">
-        <time>16/12/1987 at 13:34PM</time>
-        <div><span>Type:</span> <span>Assault</span></div>
-      </div>
-    </div>
-    <div className="single-crime">
-      <h3 class="crime-title">Crime Name</h3>
-      <p class="crime-description">Crime description must be atleast 30 words and some times should be less than that.</p>
-      <div class="crime-meta">
-        <time>16/12/1987 at 13:34PM</time>
-        <div><span>Type:</span> <span>Assault</span></div>
-      </div>
-    </div>
-    <div className="single-crime">
-      <h3 class="crime-title">Crime Name</h3>
-      <p class="crime-description">Crime description must be atleast 30 words and some times should be less than that.</p>
-      <div class="crime-meta">
-        <time>16/12/1987 at 13:34PM</time>
-        <div><span>Type:</span> <span>Assault</span></div>
-      </div>
-    </div>
+    </div>))}
+   
   </div>
   );
   }

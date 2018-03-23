@@ -80,6 +80,7 @@ class UserProfile extends React.Component {
 export default UserProfile;*/
 
 
+import './Header.css';
 
 import React from 'react';
 //import image from './crime2.jpg';
@@ -87,6 +88,7 @@ import './UserProfile.css';
 import { BrowserRouter, Router, Link } from 'react-router-dom';
 import { ButtonToolbar, Button } from 'react-bootstrap';
 import HeaderAfterLog from './HeaderAfterLog';
+import Loginheader from './Loginheader';
 
 
 /*var divStyle = {
@@ -108,49 +110,54 @@ class UserProfile extends React.Component {
    
 
     componentDidMount() {
-
-    fetch ( "http://10.10.200.22:9000/users/me" , 
-        {
-            method: "GET",     
-            headers: {
-                "Content-Type": "application/json",
-                "Accept"    :   "application,json",
-                "Authorization" : 'Bearer'+ accesstoken,
-                
-              },       
-          
-    }).then(result1=>result1.json())
-    .then((result1) => {
-        //console.log(result1);
-       this.setState ({
-         name:result1.userName,
-        email:result1.email,
-        });
         
-    })
-    .catch(function(error){
-        console.log(error);
-   });
+
+  //  fetch ( "http://10.10.200.14:9000/users/me" , 
+    fetch ( "http://10.10.200.14:9000/users/me" , 
+    {
+        method: "GET",     
+        headers: {
+            "Content-Type": "application/json",
+            "Accept"    :   "application,json",
+            "Authorization" : 'Bearer'+ accesstoken,
+            
+          },       
+      
+}).then(result1=>result1.json())
+.then((result1) => {
+    //console.log(result1);
+   this.setState ({
+     name:result1.userName,
+    email:result1.email,
+    });
+    
+})
+.catch(function(error){
+    console.log(error);
+});
     }
     render() {
         return (
             <div>
-            <HeaderAfterLog/>
-            <div>
-            <br /><br /><br />
-            <div className="title"><center><h1>My Profile</h1></center></div>
+            <Loginheader/>
+     
+      <div className="container">
+      
+          <div className="col-sm-12">
+        <br/><br/>    <br/><br/>    <br/><br/>    <br/><br/>    <br/><br/>    <br/><br/>    <br/><br/>    <br/><br/>    <br/><br/>    <br/><br/>
             <div class="card">
-          
-            <div class="container">
-                <center><h3><b>User Name:{this.state.name}</b></h3></center>
-                <p>Email:{this.state.email}</p>
-               
-                
-                <p><Button bsStyle="danger"><Link to='/editprofile' class="active">Edit Profile</Link></Button></p>
-                <p><Button bsStyle="danger"><Link to='/updatepassword' class="active">Update Password</Link></Button></p>
+            <div className="intro">
+            <br/>
+            UserName:{this.state.name}<br/>
+            Email:{this.state.email}<br/><br/>
+            <Link to='/updatepassword' > <button className="Upadte password"  >Update Password</button></Link>
             </div>
             </div>
-            </div></div>
+            </div>
+            </div>
+            </div>
+        
+            
         );
     }
 }

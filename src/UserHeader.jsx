@@ -1,7 +1,22 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 class UserHeader extends React.Component {
+  constructor(props)
+  {
+    super(props);
+    this.logout=this.logout.bind(this);
+  }
 
+
+  logout()
+  {
+    console.log(" in logut")
+    localStorage.removeItem("accesstoken");
+    localStorage.removeItem("role");
+
+//    Browsehistory.pushState('/');
+//history.push("/")
+  }
     render() {
         return(<div id="main-header-container"><nav className="navbar navbar-default navbar-fixed-top">
   <div className="">
