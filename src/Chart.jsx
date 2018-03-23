@@ -41,6 +41,38 @@ export default class Chart extends React.Component{
        // console.log('after reading');
       });
 
+
+/*      //property
+      const url1 = [
+        // Length issue
+        'http://10.10.200.14:9000','/getAnalysis1'
+      ].join("")
+  
+      fetch(url1)
+        .then(res1 => res1.json())
+        .then(result1 => {
+          console.log(result1);
+        this.setState({ markers1: result1 });
+         // console.log(this.state.markers);
+         // console.log('after reading');
+        });
+
+        //Quality
+
+        const url2 = [
+          // Length issue
+          'http://10.10.200.14:9000','/getAnalysis2'
+        ].join("")
+    
+        fetch(url2)
+          .then(res2 => res2.json())
+          .then(result2 => {
+            console.log(result2);
+          this.setState({ markers2: result2 });
+           // console.log(this.state.markers);
+           // console.log('after reading');
+          });*/
+
   }
           render(){
 
@@ -64,7 +96,7 @@ export default class Chart extends React.Component{
           colorBars
           height={250}
           width={650}
-          data={this.state.markers}
+          data={this.state.markers1}
           />
         </div>
         <div>
@@ -75,7 +107,7 @@ export default class Chart extends React.Component{
            colorBars
            height={250}
            width={650}
-           data={this.state.markers}
+           data={this.state.markers2}
            />
         </div>
       </div>

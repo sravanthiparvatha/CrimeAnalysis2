@@ -557,8 +557,6 @@ date=event.target.value;
             <div className="filters">
               <div className="date-range">
                 <h3>Date Range</h3>
-                
-                <div><input type="radio" name="Gender" id="Gender" onChange={this.handleVictimChange} value="Other" /> Custom range</div>
                 <div><input type="date" data-date=""  name="Cus"   onChange={this.handleCusChange} data-date-format="DD MMMM YYYY" /></div>
               </div>
               <div className="time-range">

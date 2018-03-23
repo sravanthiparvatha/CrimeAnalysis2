@@ -594,7 +594,10 @@ date=event.target.value;
                 <div className="filter-submit"><button onClick={this.handleSubmit}>Submit</button></div>
             </div>
         </div>
-       <ListCrimes markers={this.state.markers}/>
+        <div className="maps">
+        <ListCrimes markers={this.state.markers}/>
+        </div>
+      
       </div>
         );
     }

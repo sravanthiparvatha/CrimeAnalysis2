@@ -14,9 +14,9 @@ return(<section className="section-padding hero">
         </div>
         <div className="intro-text">
           <p> Crime is one of the most predominant and alarming aspects in our society and its prevention is a vital task. Crime analysis is a systematic way of detecting and investigating patterns and trends in crime. </p>
-          <p>Search over 1000 departments by name, region, or zip code</p>
+          <p>Search different types of crimes in Hyderabad </p>
           <Link to='/SearchCrime'><i class="glyphicon glyphicon-map-marker"></i>Explore the Map </Link>&emsp;
-          <Link to='/list'>List All Crimes    </Link>
+        
         </div>
       </div>
     </div>

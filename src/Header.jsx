@@ -26,7 +26,7 @@ class Header extends React.Component {
             <ul className="nav navbar-nav navbar-right main-navigation">
               <li><Link to='/Login'><i class="glyphicon glyphicon-user"></i>Login</Link></li>
               <li><Link to='/Register'><i class="glyphicon glyphicon-user"></i>Sign Up</Link></li>
-              <li><Link to='/Contact'>Contact Us</Link></li>
+              <li><Link to='/Contact'>About Us</Link></li>
             </ul>
           </div>
         </div>
